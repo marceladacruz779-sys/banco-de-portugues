@@ -39,3 +39,4 @@ caso ainda não tenha as dependencias, dê "npm install"
 
 Explique em que rota voce vai usar cada um destes SELECT:
 
+O SELECT com view será utilizado na rota .get (http:/localhost:3000/filtragem/:nomed/:instituicao/:nomed). E o SELECT sem view, será na rota .get (http:/localhost:3000/filtragem/) que exibirá todo o conteúdo.
