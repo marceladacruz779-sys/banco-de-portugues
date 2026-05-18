@@ -1,5 +1,4 @@
-Projeto final de integração de API produtos e programação front-end via react
-
+Projeto final BD_PORTUGUES
 ==========
 Grupo 3- Integrantes
 ==========
@@ -34,3 +33,9 @@ Como rodar o Front-End
 
 =========
 caso ainda não tenha as dependencias, dê "npm install"
+
+
+=========
+
+Explique em que rota voce vai usar cada um destes SELECT:
+
