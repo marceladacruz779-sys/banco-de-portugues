@@ -1,17 +1,21 @@
 const pool = require("../Config/database");
 
 
-//buscar por tema
+//buscar por 
+async function buscarPorTema(nomet) {
 
-async function buscarPorTema(idt) {
+  const sql = 'SELECT * FROM tema WHERE nomet ILIKE $1';
+  
   const result = await pool.query(
-      "SELECT * FROM tema WHERE idt = $1",
-      [idt]
-    );
-
-  return result.rows[0];
+    sql,
+    [`%${nomet}%`]  
+  );
+  
+  return result.rows;
 }
 
+
+
 module.exports ={
-    buscarPorTema,
+    buscarPorTema
 }
