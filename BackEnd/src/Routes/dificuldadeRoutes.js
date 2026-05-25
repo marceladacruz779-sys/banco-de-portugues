@@ -1,8 +1,9 @@
- const express = require('express');
+const express = require('express');
 const router = express.Router();
-const dificuldadeController = require('../Controllers/dificuldadeControllers');
 
-router.get('/dificuldade', dificuldadeController.l);
+const DificuldadeController = require('../Controllers/dificuldadeControllers');
+
+router.get('/Dificuldade', DificuldadeController.l);
 
 
 module.exports = router;
