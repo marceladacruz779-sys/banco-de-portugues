@@ -8,7 +8,7 @@ const DificuldadeController = require('../controllers/dificuldadeControllers');
 // DEFINIÇÃO DAS ROTAS
 
 // GET /dificuldade -- buscarPorDificuldade
-router.get('/', DificuldadeController.buscarPorDificuldade);
+router.get('/:nomed', DificuldadeController.buscarPorDificuldade);
 
 // EXPORTAR O ROUTER
 module.exports = router;

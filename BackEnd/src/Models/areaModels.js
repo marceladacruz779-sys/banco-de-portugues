@@ -1,31 +1,14 @@
 const pool = require("../Config/database");
 
-
-async function filtragem() {
+async function buscarPorArea(ida) {
   const result = await pool.query(
-      "SELECT * FROM filtragem"
-    );
-  return result.rows;    
-}
-
-async function buscarPorArea(nomea) {
-  const sql = 'SELECT * FROM area WHERE nomea ILIKE $1';
-  
-  const result = await pool.query(
-    sql,
-    [`%${nomea}%`]  
+    'SELECT * FROM area WHERE ida = $1',
+    [ida]
   );
   
   return result.rows;
 }
 
-
-
-
 module.exports = {
-  filtragem,
   buscarPorArea
-
 };
-
-

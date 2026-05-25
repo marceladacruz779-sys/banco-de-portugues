@@ -11,17 +11,17 @@ app.use(express.json());
 const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
 app.use('/area', areaRoutes);
 
-const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
-app.use('/dificuldade', dificuldadeRoutes);
-
-const questaoRoutes = require('./BackEnd/src/Routes/questaoRoutes');
-app.use('/questao', questaoRoutes);
-
 const temaRoutes = require('./BackEnd/src/Routes/temaRoutes');
 app.use('/tema', temaRoutes);
 
 const vestibularRoutes = require('./BackEnd/src/Routes/vestibularRoutes');
 app.use('/vestibular', vestibularRoutes);
+
+const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
+app.use('/dificuldade', dificuldadeRoutes);
+
+const questaoRoutes = require('./BackEnd/src/Routes/questaoRoutes');
+app.use('/questoes', questaoRoutes);
 
 
 app.get('/', (req, res) => {

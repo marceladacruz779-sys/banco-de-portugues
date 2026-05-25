@@ -8,7 +8,7 @@ const VestibularController = require('../controllers/vestibularControllers');
 // DEFINIÇÃO DAS ROTAS
 
 // GET /vestibular -- buscarPorVestibular
-router.get('/', VestibularController.buscarPorVestibular);
+router.get('/:instituicao', VestibularController.buscarPorVestibular);
 
 // EXPORTAR O ROUTER
 module.exports = router;
