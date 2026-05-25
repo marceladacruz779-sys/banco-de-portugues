@@ -14,15 +14,14 @@ app.use('/area', areaRoutes);
 const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
 app.use('/dificuldade', dificuldadeRoutes);
 
-const questaoRoutes = require('./BackEnd/src/Models/questaoModels');
-app.use('/questao');
+const questaoRoutes = require('./BackEnd/src/Routes/questaoRoutes');
+app.use('/questao', questaoRoutes);
 
-const temaRoutes = require('./BackEnd/src/Models/temaModels');
-app.use('/tema');
+const temaRoutes = require('./BackEnd/src/Routes/temaRoutes');
+app.use('/tema', temaRoutes);
 
-
-const vestibularRoutes = require('./BackEnd/src/Models/vestibularModels');
-app.use('/vestibular');
+const vestibularRoutes = require('./BackEnd/src/Routes/vestibularRoutes');
+app.use('/vestibular', vestibularRoutes);
 
 
 app.get('/', (req, res) => {
