@@ -6,7 +6,7 @@ async function listarQuestao (req, res){
     res.status(200).json(questao);
   } catch (erro) {
     res.status(500).json({ 
-      mensagem: 'Erro ao listar a Questão', 
+      mensagem: 'Erro ao listar questão', 
       erro: erro.message 
     });
   }
