@@ -8,7 +8,7 @@ const QuestaoController = require('../controllers/questaoControllers');
 // DEFINIÇÃO DAS ROTAS
 
 // GET /questao -- listarQuestao
-router.get('/questao', QuestaoController.listarQuestao);
+router.get('/', QuestaoController.listarQuestao);
 
 // EXPORTAR O ROUTER
 module.exports = router;
