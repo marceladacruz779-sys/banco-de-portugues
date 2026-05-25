@@ -14,6 +14,21 @@ async function filtragem (req, res) {
     
 }
 
+async function buscarPorArea(req, res) {
+  try {
+    const { nomea } = req.params;
+    const area = await areaModel.buscarPorTema(nomea);
+    res.status(200).json(area);
+  } catch (erro) {
+    res.status(500).json({ 
+      mensagem: 'Erro ao buscar area',
+      erro: erro.message 
+    });
+  }
+}
+
+
 module.exports = {
-    filtragem
+    filtragem,
+    buscarPorArea
 }
