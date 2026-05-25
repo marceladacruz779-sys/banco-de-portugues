@@ -1,10 +1,8 @@
 const pool = require("../Config/database");
 
-
-
 async function buscarPorDificuldade (nomed){
 
-  const sql = 'SELECT * FROM dificuldade WHERE nomed ILIKE $1';
+  const sql = 'SELECT * FROM filtragem WHERE nomed ILIKE $1';
   
   const result = await pool.query(
     sql,
@@ -13,9 +11,6 @@ async function buscarPorDificuldade (nomed){
   
   return result.rows;
 }
-
-
-
 
 module.exports = {
 buscarPorDificuldade

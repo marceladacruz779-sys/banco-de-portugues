@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+const viewRoutes = require('./BackEnd/src/Routes/viewRoutes');
+app.use('/', viewRoutes);
 
 const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
 app.use('/area', areaRoutes);
@@ -19,9 +21,6 @@ app.use('/vestibular', vestibularRoutes);
 
 const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
 app.use('/dificuldade', dificuldadeRoutes);
-
-const questaoRoutes = require('./BackEnd/src/Routes/questaoRoutes');
-app.use('/questoes', questaoRoutes);
 
 
 app.get('/', (req, res) => {

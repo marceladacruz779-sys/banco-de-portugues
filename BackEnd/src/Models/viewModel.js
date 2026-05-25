@@ -1,17 +1,14 @@
 const pool = require("../Config/database");
 
-async function area(nomea){
-
-  const sql = 'SELECT * FROM filtragem WHERE nomea ILIKE $1';
-  
+async function listarTodos() {
   const result = await pool.query(
-    sql,
-    [`%${nomea}%`]  
+    'SELECT * FROM filtragem'
   );
   
+  // Os dados ficam em result.rows
   return result.rows;
 }
 
 module.exports = {
-  area
+listarTodos
 };
