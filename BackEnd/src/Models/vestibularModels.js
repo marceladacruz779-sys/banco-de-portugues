@@ -2,16 +2,19 @@ const pool = require("../Config/database");
 
 //buscar por vestibular
 
-async function buscarPorVestibular(idv) {
+async function buscarPorVestibular(instituicao) {
+  const sql = 'SELECT * FROM vestibular WHERE instituicao ILIKE $1';
+  
   const result = await pool.query(
-      "SELECT * FROM tema WHERE idv = $1",
-      [idv]
-    );
-
-  return result.rows[0];
+    sql,
+    [`%${instituicao}%`]  
+  );
+  
+  return result.rows;
 }
 
 
+
 module.exports = {
-buscarPorVestibular,
+buscarPorVestibular
 };

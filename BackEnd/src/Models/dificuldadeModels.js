@@ -1,18 +1,22 @@
 const pool = require("../Config/database");
 
 
-//buscar por dificuldade
 
-async function buscarPorDificuldade(idd) {
+async function buscarPorDificuldade (nomed){
+
+  const sql = 'SELECT * FROM dificuldade WHERE nomed ILIKE $1';
+  
   const result = await pool.query(
-      "SELECT * FROM tema WHERE idd = $1",
-      [idd]
-    );
-
-  return result.rows[0];
+    sql,
+    [`%${nomed}%`]  
+  );
+  
+  return result.rows;
 }
 
 
+
+
 module.exports = {
-buscarPorDificuldade,
+buscarPorDificuldade
 };

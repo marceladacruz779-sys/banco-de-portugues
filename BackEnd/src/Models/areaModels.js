@@ -11,7 +11,7 @@ async function filtragem() {
 
 
 module.exports = {
-  filtragem,
+  filtragem
 
 };
 
