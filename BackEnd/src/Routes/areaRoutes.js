@@ -7,9 +7,8 @@ const AreaController = require('../controllers/areaControllers');
 
 // DEFINIÇÃO DAS ROTAS
 
-// GET /area -- listar todos
-router.get('/', AreaController.filtragem);
-router.get('/area/nomea/:nomea', AreaController.buscarPorArea)
+// GET /area -- listar por área
+router.get('/:ida', AreaController.buscarPorArea);
 
 
 // EXPORTAR O ROUTER

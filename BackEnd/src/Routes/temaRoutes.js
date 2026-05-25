@@ -8,7 +8,7 @@ const TemaController = require('../controllers/temaControllers');
 // DEFINIÇÃO DAS ROTAS
 
 // GET /tema -- buscarPorTema
-router.get('/', TemaController.buscarPorTema);
+router.get('/:nomet', TemaController.buscarPorTema);
 
 // EXPORTAR O ROUTER
 module.exports = router;
