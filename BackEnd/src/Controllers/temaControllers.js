@@ -8,7 +8,7 @@ async function buscarPorTema(req, res) {
     res.status(200).json(tema);
   } catch (erro) {
     res.status(500).json({ 
-      mensagem: 'Erro ao buscar tema por categoria',
+      mensagem: 'Erro ao buscar tema',
       erro: erro.message 
     });
   }
