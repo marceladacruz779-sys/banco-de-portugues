@@ -11,7 +11,7 @@ async function listarQuestoes() {
 
 
 module.exports = {
-  listarQuestoes,
+  listarQuestoes
 
 };
 
