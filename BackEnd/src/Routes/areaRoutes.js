@@ -9,6 +9,8 @@ const AreaController = require('../controllers/areaControllers');
 
 // GET /area -- listar todos
 router.get('/', AreaController.filtragem);
+router.get('/area/nomea/:nomea', AreaController.buscarPorArea)
+
 
 // EXPORTAR O ROUTER
 module.exports = router;
