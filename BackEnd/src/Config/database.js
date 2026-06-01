@@ -6,11 +6,11 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
 
-  user: process.env.DB_USER,           // Lê DB_USER do .env
-  host: process.env.DB_HOST,           // Lê DB_HOST do .env
-  database: process.env.DB_NAME,       // Lê DB_NAME do .env
-  password: process.env.DB_PASSWORD,   // Lê DB_PASSWORD do .env
-  port: parseInt(process.env.DB_PORT), // Lê DB_PORT e converte para número
+  user: process.env.DB_USER,           
+  host: process.env.DB_HOST,           
+  database: process.env.DB_NAME,      
+  password: process.env.DB_PASSWORD, 
+  port: parseInt(process.env.DB_PORT),
 });
 
 pool.connect((erro, client, release) => {
@@ -25,8 +25,9 @@ pool.connect((erro, client, release) => {
   }
 });
 
-
-
-
-
 module.exports = pool;
+
+
+
+
+

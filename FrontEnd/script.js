@@ -1,75 +1,62 @@
-const loginForm = document.getElementById('login-form');
-const loginSection = document.getElementById('login-section');
-const secretSection = document.getElementById('secret-section');
-const loginMessage = document.getElementById('login-message');
-const secretMessage = document.getElementById('secret-message');
+const loginForm = document.getElementById('loginForm');
+const message = document.getElementById('message');
 
-
-const API_URL = 'http://localhost:3000';
-
-
-
-async function accessSecretPanel() {
-    const token = localStorage.getItem('jwt-token');
-    if (!token) {
-        showLogin();
-        return;
-    }
-
-    try {
-        const response = await fetch(`${API_URL}/painel-secreto`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
-        if (response.ok) {
-            showSecret();
-        } else {
-            localStorage.removeItem('jwt-token');
-            showLogin();
-            loginMessage.textContent = 'Sessão expirada. Faça login novamente.';
-        }
-    } catch (error) {
-        console.error('Erro ao acessar painel:', error);
-        showLogin();
-        loginMessage.textContent = 'Erro ao conectar ao servidor.';
-    }
+function showMessage(text) {
+  message.textContent = text;
+  setTimeout(() => {
+    message.textContent = '';
+  }, 3000);
 }
 
-loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+async function handleLogin(event) {
+  event.preventDefault();
 
-    try {
-        const response = await fetch(`${API_URL}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, password })
-        });
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-        const data = await response.json();
+  if (!email || !password) {
+    showMessage('Preencha e-mail e senha.');
+    return;
+  }
 
-        if (response.ok && data.auth) {
-            localStorage.setItem('jwt-token', data.token);
-            window.location.href = 'home.html';
-        } else {
-            loginMessage.textContent = data.message || 'Login falhou!';
-        }
-    } catch (error) {
-        console.error('Erro no login:', error);
-        loginMessage.textContent = 'Erro ao conectar ao servidor.';
+  const serverOrigin = window.location.origin === 'null' ? 'http://localhost:3000' : window.location.origin;
+  const loginUrl = `${serverOrigin}/auth/login`;
+  const homeUrl = `${serverOrigin}/home.html`;
+
+  try {
+    const response = await fetch(loginUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    // Ler a resposta com tolerância a bodies vazios ou não-JSON
+    let data = null;
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      data = await response.json();
+    } else {
+      const text = await response.text();
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch (e) {
+        data = { mensagem: text };
+      }
     }
-});
 
-function showSecret() {
-    loginSection.classList.add('hidden');
-    secretSection.classList.remove('hidden');
+    if (!response.ok) {
+      throw new Error(data.mensagem || 'Falha no login');
+    }
+
+    localStorage.setItem('jwtToken', data.token);
+    window.location.href = homeUrl;
+  } catch (error) {
+    if (error instanceof TypeError) {
+      showMessage('Não foi possível conectar ao servidor. Inicie o servidor com node App.js e abra a página via http://localhost:3000');
+    } else {
+      showMessage(error.message);
+    }
+  }
 }
 
-accessSecretPanel();
-
-
+loginForm.addEventListener('submit', handleLogin);
