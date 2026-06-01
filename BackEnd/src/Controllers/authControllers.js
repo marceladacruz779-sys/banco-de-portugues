@@ -1,14 +1,10 @@
 const jwt = require('jsonwebtoken');
 
-// Carregue credenciais do usuário a partir do .env ou valores padrão
+
 const AUTH_USER = process.env.AUTH_USER;
 const AUTH_PASSWORD = process.env.AUTH_PASSWORD;
 
-// ============================================================
-// FUNÇÃO: login
-// ROTA: POST /auth/login
-// DESCRIÇÃO: Gera um token JWT para autenticação
-// ============================================================
+
 function login(req, res) {
   const { email, password } = req.body;
 

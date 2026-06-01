@@ -5,7 +5,7 @@ async function listarTodos() {
     'SELECT * FROM filtragem'
   );
   
-  // Os dados ficam em result.rows
+
   return result.rows;
 }
 
