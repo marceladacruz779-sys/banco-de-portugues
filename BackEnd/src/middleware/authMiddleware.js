@@ -1,5 +1,7 @@
+// Importa o jsonwebtoken
 const jwt = require('jsonwebtoken');
 
+// Função que verifica o acesso do usuário
 function verificarToken(req, res, next) {
   const authHeader = req.headers.authorization;
 
@@ -19,6 +21,7 @@ function verificarToken(req, res, next) {
   }
 }
 
+// Exporta a função verificarToken
 module.exports = {
   verificarToken
 };

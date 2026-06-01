@@ -1,5 +1,7 @@
+// Importa o vestibularModel
 const VestibularModel = require('../Models/vestibularModels');
 
+// Função de intermediação da filtragem por banca
 async function buscarPorVestibular(req, res) {
     try {
         const { instituicao } = req.params;
@@ -13,6 +15,7 @@ async function buscarPorVestibular(req, res) {
     }
 }
 
+// Exporta a função buscarPorVestibular
 module.exports = {
     buscarPorVestibular
 };

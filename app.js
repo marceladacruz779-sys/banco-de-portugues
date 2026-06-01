@@ -1,38 +1,49 @@
+// Carrega as variáveis de ambiente (informações) do .env primeiro
 require('dotenv').config();
 
+// Permitem importação e a inicialição do servidor
 const express = require('express');
 const app = express();
 const path = require('path');
 
+// Porta
 const PORT = process.env.PORT || 3000;
 
+// Permitem que os arquivos cheguem ao usuário e o entendimento de dados por requisições 
 app.use(express.static(path.join(__dirname, 'FrontEnd')));
 app.use(express.json());
 
+// Rota do login de segurança
 const authRoutes = require('./BackEnd/src/Routes/authRoutes');
 const { verificarToken } = require('./BackEnd/src/middleware/authMiddleware');
-
 app.use('/auth', authRoutes);
 
+// Rota da View
 const viewRoutes = require('./BackEnd/src/Routes/viewRoutes');
 app.use('/view', verificarToken, viewRoutes);
 
+// Rota da area
 const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
 app.use('/area', verificarToken, areaRoutes);
 
+// Rota do tema
 const temaRoutes = require('./BackEnd/src/Routes/temaRoutes');
 app.use('/tema', verificarToken, temaRoutes);
 
+// Rota do vestibular
 const vestibularRoutes = require('./BackEnd/src/Routes/vestibularRoutes');
 app.use('/vestibular', verificarToken, vestibularRoutes);
 
+// Rota da dificuldade
 const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
 app.use('/dificuldade', verificarToken, dificuldadeRoutes);
 
+// Permite a navegação do usuário no HTML
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'FrontEnd', 'index.html'));
 });
 
+// Rota sobre os dados do banco 
 app.get('/api', (req, res) => {
   res.json({ 
     mensagem: 'API de bd_LP com PostgreSQL',
@@ -42,6 +53,7 @@ app.get('/api', (req, res) => {
   });
 });
 
+// Inicia o Servidor
 app.listen(PORT, () => {
   console.log('='.repeat(50));
   console.log('🚀 Servidor rodando!');
