@@ -1,5 +1,7 @@
+// Importa o temaModel
 const temaModel = require('../Models/temaModels');
 
+// Função de intermediação da filtragem por matéria
 async function buscarPorTema(req, res) {
   try {
     const { nomet } = req.params;
@@ -13,6 +15,7 @@ async function buscarPorTema(req, res) {
   }
 }
 
+// Exporta a função buscarPorTema
 module.exports ={
-buscarPorTema
+buscarPorTema 
 }

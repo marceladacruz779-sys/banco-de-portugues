@@ -1,5 +1,7 @@
+// Importa o areaModel
 const AreaModel = require('../Models/areaModels')
 
+// Função de intermediação das áreas Literatura e Gramática
 async function area(req, res) {
     try {
         const { nomea } = req.params;
@@ -13,6 +15,7 @@ async function area(req, res) {
     }
 }
 
+// Exporta a função area
 module.exports = {
     area
 }
