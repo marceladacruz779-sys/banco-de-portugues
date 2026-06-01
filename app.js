@@ -6,17 +6,13 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
-// ✅ Servir arquivos estáticos do FrontEnd
 app.use(express.static(path.join(__dirname, 'FrontEnd')));
 app.use(express.json());
 
 const authRoutes = require('./BackEnd/src/Routes/authRoutes');
 const { verificarToken } = require('./BackEnd/src/middleware/authMiddleware');
 
-
-
 app.use('/auth', authRoutes);
-
 
 const viewRoutes = require('./BackEnd/src/Routes/viewRoutes');
 app.use('/view', verificarToken, viewRoutes);
@@ -33,12 +29,9 @@ app.use('/vestibular', verificarToken, vestibularRoutes);
 const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
 app.use('/dificuldade', verificarToken, dificuldadeRoutes);
 
-
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'FrontEnd', 'index.html'));
 });
-
 
 app.get('/api', (req, res) => {
   res.json({ 
