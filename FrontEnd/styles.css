@@ -18,11 +18,18 @@
 
 
 body {
-    background-image: url('img/image.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
+background-color: var(--amarelo);
+
+}
+
+body
+.imagem{
+    background-image: url('./img/image.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
 }
 
 header{
@@ -32,6 +39,14 @@ header{
     flex-direction: column;
 }
 
+.header-login{
+    background-image: url('./img/image.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+}
 nav{
     display: flex;
     gap: 20rem;
@@ -51,12 +66,15 @@ a{
 }
 
 .cabecalho{
+    top: 0;
+    position: relative;
     display: flex;
     padding: 5px;
     gap: 20px;
 }
 
 h1{
+
   font-family: "Fugaz One", sans-serif;
   color: var(--amarelo);
   font-size: 200PX;
@@ -71,6 +89,27 @@ main{
     align-items: center;
     justify-content: center;
 }
+
+
+.text_Sobre {
+    display: flex;
+    flex-direction: column;
+} 
+
+.conteudo {
+    padding: 50px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-family: "Bree Serif", serif;
+    gap: 50px;
+
+}
+
+
+
+
 
 .login{
     display: flex;
@@ -158,15 +197,28 @@ input {
 }
 
 .information h2{
-  position: fixed;
+  margin-top: 35rem;
   bottom: 0;
   right: 0;
   width: 100%;
   text-align: right;
   z-index: 9999;
   font-family: "Fugaz One", sans-serif;
-  color: var(--amarelo);
-  font-size: 200px;
+  color: var(--laranja);
+  font-size: 100px;
+
+}
+
+
+
+footer{
+    background-color: var(--vinho);
+    color: var(--branco);
+    font-family: "Bree Serif", serif;
+    font-size: 10px;
+    display: flex;
+    padding: 50px;
+    justify-content: center;
 }
 
 
