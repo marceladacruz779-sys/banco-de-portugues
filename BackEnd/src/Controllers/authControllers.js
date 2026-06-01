@@ -1,10 +1,11 @@
+// Importa o jsonwebtoken, para verificação de segurança por token
 const jwt = require('jsonwebtoken');
 
-
+// Carrega as informaçõe sdo usuário de acordo com o .env
 const AUTH_USER = process.env.AUTH_USER;
 const AUTH_PASSWORD = process.env.AUTH_PASSWORD;
 
-
+// Função de login para autenticação
 function login(req, res) {
   const { email, password } = req.body;
 
@@ -23,6 +24,7 @@ function login(req, res) {
   res.status(200).json({ token });
 }
 
+//Exporta a função login
 module.exports = {
   login
 };

@@ -1,5 +1,7 @@
+// Importa o viewModel
 const ViewModel = require('../Models/viewModel');
 
+// Função de intermediação de listar tudo
 async function listarTodos(req, res) {
   try {
     const filtragem = await ViewModel.listarTodos();
@@ -12,6 +14,7 @@ async function listarTodos(req, res) {
   }
 }
 
+// Exporta a função listarTodos
 module.exports = {
   listarTodos
 };

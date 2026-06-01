@@ -1,5 +1,7 @@
+// Importa o dificuldadeModel
 const DificuldadeModel = require('../Models/dificuldadeModels');
 
+// Função de intermediação da filtragem por dificuldade
 async function buscarPorDificuldade(req, res) {
     try {
         const { nomed } = req.params;
@@ -13,6 +15,7 @@ async function buscarPorDificuldade(req, res) {
     }
 }
 
+// Exporta a função buscarPorDificuldade
 module.exports = {
     buscarPorDificuldade
 };
