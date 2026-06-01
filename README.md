@@ -3,13 +3,13 @@
   <img src="[https://user-images.githubusercontent.com/13087389/126053559-d4c7d080-0ad3-4deb-83dd-2a52b209e5f2.png](https://i.pinimg.com/736x/9c/d4/d7/9cd4d78c44efd264ad81488d6c22020d.jpg](https://i.pinimg.com/736x/9c/d4/d7/9cd4d78c44efd264ad81488d6c22020d.jpg)" width="128" />
   <br> Banco de Dados | Lingua Portuguesa
 
-==========
+
 Descrição
 ==========
 Desenvolvemos um Banco de Dados de Lingua Portuguesa, visando aplicar programação Back-End e Front-End, aplicando coiceitos de Banco de Dados, JavaScript e React.
 O site possui elemento JWT, limitando seu acesso por Login. Além disso, possui métodos de busca por categorias diversas.
 
-==========
+
 Grupo MegaMind- Integrantes
 ==========
 
@@ -19,7 +19,7 @@ Pietra Del Vecchio Pivatti <br>
 Isadora Gregatti Danelon  <br>
 Marcela Pereira da Cruz <br>
 
-=======
+
 Como rodar o Back-End
 =======
 
@@ -30,7 +30,7 @@ Como rodar o Back-End
 5- Você poderá testar a API usando softwares de testes como o Insomnia <br>
 
 
-======
+
 Como rodar o Front-End
 =======
 
@@ -47,7 +47,7 @@ Como rodar o Front-End
 - arquivo .env na raíz
 =========
 
-======
+
 Rotas dos selects
 ======
 O SELECT com view será utilizado na rota .get (http:/localhost:3000/filtragem/:nomed/:instituicao/:nomed). E o SELECT sem view, será na rota .get (http:/localhost:3000/filtragem/) que exibirá todo o conteúdo.
