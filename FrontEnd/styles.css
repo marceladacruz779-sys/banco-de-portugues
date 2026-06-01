@@ -30,6 +30,20 @@ header{
     flex-direction: column;
 }
 
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: var(--amarelo);
+    width: 1200px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.cabecalho{
+    display: flex;
+    gap: 20px;
+}
+
 h1{
   font-family: "Fugaz One", sans-serif;
   color: var(--amarelo);
@@ -46,7 +60,7 @@ main{
     justify-content: center;
 }
 
-button{
+.login{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,14 +72,25 @@ button{
     border: none;
 }
 
-button:hover{
+.login:hover{
      background-color: var(--branco);
     color: var(--vinho);
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
+.btn-logout{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--laranja);
+    color: var(--branco);
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
 
+}
 input{
     background-color: var(--amarelo);
     border-color: var(--vinho);
@@ -115,5 +140,13 @@ input {
     height: 30px;
 }
 
+.information h2{
+    display: flex;
+    font-family: "Fugaz One", sans-serif;
+  color: var(--amarelo);
+  font-size: 200PX;
+   justify-content: flex-end; 
+  align-items: flex-start;
+}
 
 
