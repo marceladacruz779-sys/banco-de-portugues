@@ -1,81 +1,75 @@
 const loginForm = document.getElementById('login-form');
-    const loginSection = document.getElementById('login-section');
-    const secretSection = document.getElementById('secret-section');
-    const loginMessage = document.getElementById('login-message');
-    const secretMessage = document.getElementById('secret-message');
-
-    const API_URL = 'http://localhost:3000';
+const loginSection = document.getElementById('login-section');
+const secretSection = document.getElementById('secret-section');
+const loginMessage = document.getElementById('login-message');
+const secretMessage = document.getElementById('secret-message');
 
 
-    async function accessSecretPanel() {
-        const token = localStorage.getItem('jwt-token');
-        if (!token) {
-            showLogin();
-            return;
-        }
+const API_URL = 'http://localhost:3000';
 
-        try {
-            const response = await fetch(`${API_URL}/painel-secreto`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
 
-            if (response.ok) {
-                const data = await response.json();
-                showSecret();
-            } else {
-            
-                localStorage.removeItem('jwt-token');
-                showLogin();
-                loginMessage.textContent = 'Sessão expirada. Faça login novamente.';
-            }
-        } catch (error) {
-            console.error('Erro ao acessar painel:', error);
-            showLogin();
-            loginMessage.textContent = 'Erro ao conectar ao servidor.';
-        }
+
+async function accessSecretPanel() {
+    const token = localStorage.getItem('jwt-token');
+    if (!token) {
+        showLogin();
+        return;
     }
 
-
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        try {
-            const response = await fetch(`${API_URL}/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password })
-            });
-
-            const data = await response.json();
-
-            if (data.auth) {
-                localStorage.setItem('jwt-token', data.token);
-                accessSecretPanel();
-
-                window.location.href="http://127.0.0.1:5500/FRONTEND/home.html"
-
-            } else {
-                loginMessage.textContent = data.message || 'Login falhou!';
+    try {
+        const response = await fetch(`${API_URL}/painel-secreto`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
             }
-        } catch (error) {
-            console.error('Erro no login:', error);
-            loginMessage.textContent = 'Erro ao conectar ao servidor.';
+        });
+
+        if (response.ok) {
+            showSecret();
+        } else {
+            localStorage.removeItem('jwt-token');
+            showLogin();
+            loginMessage.textContent = 'Sessão expirada. Faça login novamente.';
         }
-    });
-
-
-    function showSecret() {
-        loginSection.classList.add('hidden');
-        secretSection.classList.remove('hidden');
+    } catch (error) {
+        console.error('Erro ao acessar painel:', error);
+        showLogin();
+        loginMessage.textContent = 'Erro ao conectar ao servidor.';
     }
+}
 
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    accessSecretPanel();
+    try {
+        const response = await fetch(`${API_URL}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.auth) {
+            localStorage.setItem('jwt-token', data.token);
+            window.location.href = 'home.html';
+        } else {
+            loginMessage.textContent = data.message || 'Login falhou!';
+        }
+    } catch (error) {
+        console.error('Erro no login:', error);
+        loginMessage.textContent = 'Erro ao conectar ao servidor.';
+    }
+});
+
+function showSecret() {
+    loginSection.classList.add('hidden');
+    secretSection.classList.remove('hidden');
+}
+
+accessSecretPanel();
 
 
