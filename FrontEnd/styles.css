@@ -22,7 +22,14 @@ background-color: var(--amarelo);
 
 }
 
-body
+.body-login {
+      background-image: url('img/image.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+}
+
 .imagem{
     background-image: url('./img/image.png');
     background-position: center;
@@ -39,14 +46,7 @@ header{
     flex-direction: column;
 }
 
-.header-login{
-    background-image: url('./img/image.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
 
-}
 nav{
     display: flex;
     gap: 20rem;
