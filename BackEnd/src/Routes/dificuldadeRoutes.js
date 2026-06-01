@@ -4,8 +4,7 @@ const router = express.Router();
 
 // Importa o dificuldadeController
 const DificuldadeController = require('../controllers/dificuldadeControllers');
-// Rota GET para filtrag
-em por dificuldade
+// Rota GET para filtragem por dificuldade
 router.get('/:nomed', DificuldadeController.buscarPorDificuldade);
 
 // Exporta a rota de difilculdade
