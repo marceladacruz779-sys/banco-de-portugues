@@ -7,31 +7,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>BANCO | LITERATURA | GRAMÁTICA</h1>
+ <header>
+    <nav>
+      <h1>The Whispering Library</h1>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="./gramatica.html">Gramática</a></li>
+        <li><button id="logoutButton" class="btn-logout">Logout</button></li>
+      </ul>
+    </nav>
+  </header>
 
-    </header>
+  <main class="home">
+    <section class="hero">
+      <div class="video">
+        <img src="img/image (2).png" alt="imagem background">
+        <h2>Banco de Questões</h2>
 
-    <article id="secret-section">
-        <div class="Segredo">
-            <h2>BANCO DE QUESTÕES</h2>
+        
+      </section>
+      
+      <section class="about">
+        <h3>SOBRE NÓS</h3>
+        <p>
+BLA BLA BLA
+        </p>
+      </section>
+    </div>
+  </main>
 
-            <div class="img">
-                <img src="img/image (2).png" alt="backgroud">
-            </div>
-            <a href="index.html" id="logout-button" onclick="localStorage.removeItem('jwt-token')">Sair</a>
-        <div class="informacoes">
-            <h2>SOBRE NÓS</h2>
-            <h2>SOBRE NÓS</h2>
-        </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const logoutButton = document.getElementById('logoutButton');
+      if (!logoutButton) return;
 
-        </div>
-    </article>
-
-    <footer>
-        <h2>Grupo 3 @ SESI SENAI</h2>
-    </footer>
-
-    <script src="script.js"></script>
+      logoutButton.addEventListener('click', function() {
+        localStorage.removeItem('jwtToken');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
 </body>
 </html>
