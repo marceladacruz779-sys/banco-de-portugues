@@ -1,6 +1,6 @@
 <span id="top"></span>
 <h1 align="center">
-  <img src="[https://user-images.githubusercontent.com/13087389/126053559-d4c7d080-0ad3-4deb-83dd-2a52b209e5f2.png](https://i.pinimg.com/736x/9c/d4/d7/9cd4d78c44efd264ad81488d6c22020d.jpg](https://i.pinimg.com/736x/9c/d4/d7/9cd4d78c44efd264ad81488d6c22020d.jpg)" width="128" />
+  <img src="https://i.pinimg.com/736x/ce/b0/5f/ceb05f23845eca7b618127f6ac81f4e1.jpg" width="128" />
   <br> Banco de Dados | Lingua Portuguesa
 
 
