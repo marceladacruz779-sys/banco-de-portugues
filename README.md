@@ -1,6 +1,16 @@
-Projeto final BD_PORTUGUES
+<span id="top"></span>
+<h1 align="center">
+  <img src="[https://user-images.githubusercontent.com/13087389/126053559-d4c7d080-0ad3-4deb-83dd-2a52b209e5f2.png](https://i.pinimg.com/736x/9c/d4/d7/9cd4d78c44efd264ad81488d6c22020d.jpg](https://i.pinimg.com/736x/9c/d4/d7/9cd4d78c44efd264ad81488d6c22020d.jpg)" width="128" />
+  <br> Banco de Dados | Lingua Portuguesa
+
 ==========
-Grupo 3- Integrantes
+Descrição
+==========
+Desenvolvemos um Banco de Dados de Lingua Portuguesa, visando aplicar programação Back-End e Front-End, aplicando coiceitos de Banco de Dados, JavaScript e React.
+O site possui elemento JWT, limitando seu acesso por Login. Além disso, possui métodos de busca por categorias diversas.
+
+==========
+Grupo MegaMind- Integrantes
 ==========
 
 Beatryz Caroline dos Santos Rodrigues <br>
@@ -14,9 +24,9 @@ Como rodar o Back-End
 =======
 
 1- Clone o repositório <br>
-2- Acesse a pasta principal "projetoFinal-FrontEnd" <br>
-3- Acesse a subpasta "Back-End" a partir do comando CD no seu terminal <br>
-4- Ainda no terminal, se certifica que as dependências estão conectadas e execute o comando "node app" <br>
+2- Acesse a pasta principal "banco-de-portugues" <br>
+3- Acesse a subpasta "BackEnd" a partir do comando CD no seu terminal <br>
+4- Ainda no terminal, se certifique que as dependências estão conectadas e execute o comando "node app" <br>
 5- Você poderá testar a API usando softwares de testes como o Insomnia <br>
 
 
@@ -25,18 +35,19 @@ Como rodar o Front-End
 =======
 
 1- Clone o repositório <br>
-2- Acesse a pasta principal "projetoFinal-FrontEnd" <br>
-3- Acesse a subpasta "Front-End" a partir do comando CD no seu terminal <br>
+2- Acesse a pasta principal "banco-de-portugues" <br>
+3- Acesse a subpasta "FrontEnd" a partir do comando CD no seu terminal <br>
 4- Ainda no terminal, se certifica que as dependências estão conectadas e execute o comando "npm run dev" <br>
 5- Você poderá testar a API a partir do acesso da rota correta em seu navegador, enquanto o código estiver rodando
 
 
 =========
-caso ainda não tenha as dependencias, dê "npm install"
-
-
+- caso ainda não tenha as dependencias, dê "npm install"-> FrontEnd
+- npm i jsonwebtoken -> BackEnd
+- arquivo .env na raíz
 =========
 
-Explique em que rota voce vai usar cada um destes SELECT:
-
+======
+Rotas dos selects
+======
 O SELECT com view será utilizado na rota .get (http:/localhost:3000/filtragem/:nomed/:instituicao/:nomed). E o SELECT sem view, será na rota .get (http:/localhost:3000/filtragem/) que exibirá todo o conteúdo.
