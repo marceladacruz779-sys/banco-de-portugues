@@ -8,35 +8,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Login</h1>
-  <p>Faça login para acessar o Banco de Questões</p>
-  <br>
-  </header>
+  <section class="hero">
+    <header>
+      <h1>Login</h1>
+      <p>Faça login para acessar o Banco de Questões</p>
+    </header>
 
-  <main>
-    <section class="panel-login-panel">
-      <h2>Autenticação</h2>
-      <div id="message" class="message"></div>
-      <form id="loginForm">
-        <div class="form-row">
-          <span class="material-symbols-outlined">person</span>
-          <label for="email">E-mail</label>
-          <input id="email" type="email" required placeholder="meu.email@.com.br" />
-        </div>
-        <br>
-        <div class="form-row">
-         <span class="material-symbols-outlined">key</span>
-          <label for="password">Senha</label>
-          <input id="password" type="password" required placeholder="senha" />
-        </div>
-        <br>
-        <div class="button-row">
-          <button class="login" type="submit">Entrar</button>
-        </div>
-      </form>
-    </section>
-  </main>
+    <main>
+      <section class="panel-login-panel">
+        <h2>Autenticação</h2>
+        <div id="message" class="message"></div>
+        <form id="loginForm">
+          <div class="form-row">
+            <span class="material-symbols-outlined">person</span>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" required placeholder="meu.email@.com.br" />
+          </div>
+          <br>
+          <div class="form-row">
+            <span class="material-symbols-outlined">key</span>
+            <label for="password">Senha</label>
+            <input id="password" type="password" required placeholder="senha" />
+          </div>
+          <br>
+          <div class="button-row">
+            <button class="login" type="submit">Entrar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </section>
+
+  
 
   <script src="script.js" defer></script>
 </body>
