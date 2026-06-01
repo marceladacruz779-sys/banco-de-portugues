@@ -95,9 +95,24 @@ input{
 .form-row{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 15px;
     font-size: 20px;
+    width: 100%;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 24px;
+    color: var(--vinho);
+}
+
+input {
+    background-color: var(--amarelo);
+    border-color: var(--vinho);
+    border-radius: 3px;
+    width: 270px;
+    height: 30px;
 }
 
 
