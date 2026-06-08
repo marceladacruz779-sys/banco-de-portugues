@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./Literatura.css";
 
 export default function Literatura() {
   const [banca, setBanca] = useState("");
