@@ -107,6 +107,21 @@ main{
 
 }
 
+.conteudo_perguntas{
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--vinho);
+    display: flex;
+    flex-direction: column;
+    color: var(--branco);
+}
+
+.text_Questoes{
+    color: var(--branco);
+    padding-bottom: 20px;
+    padding-top: 5px;
+
+}
 
 
 
@@ -215,6 +230,7 @@ input {
 
 
 footer{
+    width: 100%;
     background-color: var(--vinho);
     color: var(--branco);
     font-family: "Bree Serif", serif;

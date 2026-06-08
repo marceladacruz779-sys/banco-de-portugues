@@ -20,23 +20,23 @@ app.use('/auth', authRoutes);
 
 // Rota da View
 const viewRoutes = require('./BackEnd/src/Routes/viewRoutes');
-app.use('/view', verificarToken, viewRoutes);
+app.use('/view', viewRoutes);
 
 // Rota da area
 const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
-app.use('/area', verificarToken, areaRoutes);
+app.use('/area', areaRoutes);
 
 // Rota do tema
 const temaRoutes = require('./BackEnd/src/Routes/temaRoutes');
-app.use('/tema', verificarToken, temaRoutes);
+app.use('/tema', temaRoutes);
 
 // Rota do vestibular
 const vestibularRoutes = require('./BackEnd/src/Routes/vestibularRoutes');
-app.use('/vestibular', verificarToken, vestibularRoutes);
+app.use('/vestibular', vestibularRoutes);
 
 // Rota da dificuldade
 const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
-app.use('/dificuldade', verificarToken, dificuldadeRoutes);
+app.use('/dificuldade', dificuldadeRoutes);
 
 // Permite a navegação do usuário no HTML
 app.get('/', (req, res) => {
