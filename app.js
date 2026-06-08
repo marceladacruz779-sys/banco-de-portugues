@@ -14,16 +14,16 @@ app.use(cors());
 app.use(express.json());
 
 // Rota do login de segurança
-const authRoutes = require('./src/Routes/authRoutes');
-const { verificarToken } = require('./src/middleware/authMiddleware');
+const authRoutes = require('./BackEnd/src/Routes/authRoutes');
+const { verificarToken } = require('./BackEnd/src/middleware/authMiddleware');
 app.use('/auth', authRoutes);
 
 // Rota da área
-const areaRoutes = require('./src/Routes/areaRoutes');
+const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
 app.use('/area', areaRoutes);
 
 // Rota das questões
-const filtragemRoutes = require('./src/Routes/filtragemRoutes');
+const filtragemRoutes = require('./BackEnd/src/Routes/filtragemRoutes');
 app.use('/questoes', filtragemRoutes);
 
 // Permitem a navegação do usuário no HTML
