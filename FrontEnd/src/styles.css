@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+:root {
+    --vinho: #46151b;
+    --amarelo: #fbde9c;
+    --rosa: #ea9daf;
+    --rosa2: #c0484a;
+    --laranja: #f68b51;
+    --branco: #ffffff;
+    --preto: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../public/image\ \(2\).png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: var(--amarelo);
+    width: 1200px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.cabecalho{
+    display: flex;
+    gap: 20px;
+}
+
+h1{
+  font-family: "Fugaz One", sans-serif;
+  color: var(--amarelo);
+  font-size: 200PX;
+}
+
+P{
+    font-size: 20PX;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--vinho);
+    color: var(--branco);
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login:hover{
+     background-color: var(--branco);
+    color: var(--vinho);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.btn-logout{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--laranja);
+    color: var(--branco);
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+
+}
+input{
+    background-color: var(--amarelo);
+    border-color: var(--vinho);
+    border-radius: 3px;
+    width: 270px;
+    height: 30px;
+}
+
+.panel-login-panel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--amarelo);
+    height: 250px;
+    width: 400px;
+    gap: 20px;
+    border-radius: 20px;
+}
+
+.button-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-row{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 24px;
+    color: var(--vinho);
+}
+
+input {
+    background-color: var(--amarelo);
+    border-color: var(--vinho);
+    border-radius: 3px;
+    width: 270px;
+    height: 30px;
+}
+
+.information h2{
+    display: flex;
+    font-family: "Fugaz One", sans-serif;
+  color: var(--amarelo);
+  font-size: 200PX;
+   justify-content: flex-end; 
+  align-items: flex-start;
+}
