@@ -3,33 +3,30 @@ require('dotenv').config();
 
 // Permitem importação e a inicialição do servidor
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const path = require('path');
 
 // Porta
 const PORT = process.env.PORT || 3000;
 
-// Permitem que os arquivos cheguem ao usuário e o entendimento de dados por requisições 
-app.use(express.static(path.join(__dirname, 'FrontEnd')));
+app.use(cors());
 app.use(express.json());
 
 // Rota do login de segurança
-const authRoutes = require('./BackEnd/src/Routes/authRoutes');
-const { verificarToken } = require('./BackEnd/src/middleware/authMiddleware');
+const authRoutes = require('./src/Routes/authRoutes');
+const { verificarToken } = require('./src/middleware/authMiddleware');
 app.use('/auth', authRoutes);
 
-// Rota da area
-const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
-app.use('/area', areaRoutes);
+// Rota das questões
+const filtragemRoutes = require('./src/Routes/filtragemRoutes');
+app.use('/questoes', filtragemRoutes);
 
-// Rota da filtragem
-const filtragemRoutes = require('./BackEnd/src/Routes/filtragemRoutes');
-app.use('/filtragem', areaRoutes);
+// Permitem a navegação do usuário no HTML
+app.use(express.static(path.join(__dirname, '..', 'FrontEnd')));
 
-
-// Permite a navegação do usuário no HTML
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'FrontEnd', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'FrontEnd', 'index.html'));
 });
 
 // Rota sobre os dados do banco 
