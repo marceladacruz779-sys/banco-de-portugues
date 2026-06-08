@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {Navbar} from "../components/Navbar";
 
 export default function Literatura() {
   const [banca, setBanca] = useState("");
@@ -36,19 +37,7 @@ export default function Literatura() {
 
   return (
     <>
-      <header>
-        <div className="cabecalho">
-          <nav>
-            <a href="/">Home</a>
-            <a href="/gramatica">Gramática</a>
-            <a href="/literatura">Literatura</a>
-          </nav>
-
-          <button className="btn-logout">
-            Logout
-          </button>
-        </div>
-      </header>
+      <Navbar />
 
       <select
         value={banca}
