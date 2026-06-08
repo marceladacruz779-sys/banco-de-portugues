@@ -228,9 +228,11 @@ footer{
     background-color: var(--vinho);
     color: var(--branco);
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40px;
     width: 1400px;
-    padding: 5px;
-    gap: 20px;
+    gap: 200px;
+    border-radius: 5px;
 }
 
