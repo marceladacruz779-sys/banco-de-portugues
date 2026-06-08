@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {Navbar} from "../components/Navbar";
 
-export default function Literatura() {
+export default function Gramatica() {
   const [banca, setBanca] = useState("");
   const [tema, setTema] = useState("");
   const [dificuldade, setDificuldade] = useState("");
@@ -37,6 +37,7 @@ export default function Literatura() {
 
   return (
     <>
+      
       <Navbar />
 
       <select
@@ -63,8 +64,8 @@ export default function Literatura() {
         onChange={(e) => setTema(e.target.value)}
       >
         <option value="">Todos os Temas</option>
-        <option value="Modernismo">Modernismo</option>
-        <option value="Romantismo">Romantismo</option>
+        <option value="Variação Linguística">Variação Linguística</option>
+        <option value="Análise Sintática">Análise Sintática</option>
       </select>
 
       <select
