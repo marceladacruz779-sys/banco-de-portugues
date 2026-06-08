@@ -18,17 +18,14 @@ const authRoutes = require('./BackEnd/src/Routes/authRoutes');
 const { verificarToken } = require('./BackEnd/src/middleware/authMiddleware');
 app.use('/auth', authRoutes);
 
-// Rota da View
-const viewRoutes = require('./BackEnd/src/Routes/viewRoutes');
-app.use('/view', verificarToken, viewRoutes);
-
 // Rota da area
 const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
-app.use('/area', verificarToken, areaRoutes);
+app.use('/area', areaRoutes);
 
-const filtroRoutes = require("./BackEnd/src/Routes/testeRoutes");
+// Rota da filtragem
+const filtragemRoutes = require('./BackEnd/src/Routes/filtragemRoutes');
+app.use('/filtragem', areaRoutes);
 
-app.use("/filtro", filtroRoutes);
 
 // Permite a navegação do usuário no HTML
 app.get('/', (req, res) => {
@@ -47,10 +44,10 @@ app.get('/api', (req, res) => {
 
 // Inicia o Servidor
 app.listen(PORT, () => {
-  console.log(`='.repeat(50)`);
-  console.log(`🚀 Servidor rodando!`);
+  console.log('='.repeat(50));
+  console.log('🚀 Servidor rodando!');
   console.log(`📍 URL: http://localhost:${PORT}`);
   console.log(`💾 Banco: PostgreSQL (${process.env.DB_NAME})`);
   console.log(`🌍 Ambiente: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`'='.repeat(50)`);
+  console.log('='.repeat(50));
 });
