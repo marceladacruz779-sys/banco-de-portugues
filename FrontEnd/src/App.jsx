@@ -1,7 +1,7 @@
-import TesteQuestao from "./pages/teste";
+import Literatura from "./pages/literatura";
 
 function App() {
-  return <TesteQuestao />;
+  return <Literatura />;
 }
 
 export default App;
