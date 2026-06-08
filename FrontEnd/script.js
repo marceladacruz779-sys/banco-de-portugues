@@ -20,8 +20,8 @@ async function handleLogin(event) {
   }
 
   const serverOrigin = window.location.origin === 'null' ? 'http://localhost:3000' : window.location.origin;
-  const loginUrl = `${serverOrigin}/auth/login`;
-  const homeUrl = `${serverOrigin}/home.html`;
+  const loginUrl = ${serverOrigin}/auth/login;
+  const homeUrl = ${serverOrigin}/home.html;
 
   try {
     const response = await fetch(loginUrl, {
