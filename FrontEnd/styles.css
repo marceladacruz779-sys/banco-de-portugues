@@ -292,4 +292,13 @@ footer{
     justify-content: center;
 }
 
+.rodape2{
+    background-color: var(--vinho);
+    color: var(--branco);
+    display: flex;
+    height: 40px;
+    width: 1400px;
+    padding: 5px;
+    gap: 20px;
+}
 
