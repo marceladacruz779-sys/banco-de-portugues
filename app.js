@@ -3,44 +3,34 @@ require('dotenv').config();
 
 // Permitem importação e a inicialição do servidor
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const path = require('path');
 
 // Porta
 const PORT = process.env.PORT || 3000;
 
-// Permitem que os arquivos cheguem ao usuário e o entendimento de dados por requisições 
-app.use(express.static(path.join(__dirname, 'FrontEnd')));
+app.use(cors());
 app.use(express.json());
 
 // Rota do login de segurança
-const authRoutes = require('./BackEnd/src/Routes/authRoutes');
-const { verificarToken } = require('./BackEnd/src/middleware/authMiddleware');
+const authRoutes = require('./src/Routes/authRoutes');
+const { verificarToken } = require('./src/middleware/authMiddleware');
 app.use('/auth', authRoutes);
 
-// Rota da View
-const viewRoutes = require('./BackEnd/src/Routes/viewRoutes');
-app.use('/view', viewRoutes);
-
-// Rota da area
-const areaRoutes = require('./BackEnd/src/Routes/areaRoutes');
+// Rota da área
+const areaRoutes = require('./src/Routes/areaRoutes');
 app.use('/area', areaRoutes);
 
-// Rota do tema
-const temaRoutes = require('./BackEnd/src/Routes/temaRoutes');
-app.use('/tema', temaRoutes);
+// Rota das questões
+const filtragemRoutes = require('./src/Routes/filtragemRoutes');
+app.use('/questoes', filtragemRoutes);
 
-// Rota do vestibular
-const vestibularRoutes = require('./BackEnd/src/Routes/vestibularRoutes');
-app.use('/vestibular', vestibularRoutes);
+// Permitem a navegação do usuário no HTML
+app.use(express.static(path.join(__dirname, '..', 'FrontEnd')));
 
-// Rota da dificuldade
-const dificuldadeRoutes = require('./BackEnd/src/Routes/dificuldadeRoutes');
-app.use('/dificuldade', dificuldadeRoutes);
-
-// Permite a navegação do usuário no HTML
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'FrontEnd', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'FrontEnd', 'index.html'));
 });
 
 // Rota sobre os dados do banco 
@@ -56,9 +46,9 @@ app.get('/api', (req, res) => {
 // Inicia o Servidor
 app.listen(PORT, () => {
   console.log('='.repeat(50));
-  console.log('🚀 Servidor rodando!');
+  console.log(`🚀 Servidor rodando!`);
   console.log(`📍 URL: http://localhost:${PORT}`);
   console.log(`💾 Banco: PostgreSQL (${process.env.DB_NAME})`);
   console.log(`🌍 Ambiente: ${process.env.NODE_ENV || 'development'}`);
-  console.log('='.repeat(50));
+  console.log(`'='.repeat(50)`);
 });
