@@ -104,7 +104,26 @@ main{
     text-align: center;
     font-family: "Bree Serif", serif;
     gap: 50px;
+    
+}
 
+.conteudo_barra2{
+    padding-top: 20px;
+    display:flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.rodape2{
+    background-color: var(--vinho);
+    color: var(--branco);
+    display: flex;
+    height: 40px;
+    width: 1400px;
+    padding: 5px;
+    gap: 200px;
+    align-items: center;
+    justify-content: center;
 }
 
 .conteudo_perguntas{
@@ -117,11 +136,32 @@ main{
 }
 
 .text_Questoes{
-    color: var(--branco);
+
     padding-bottom: 20px;
     padding-top: 5px;
+    text-align: justify;
 
 }
+
+.text_referencia {
+    padding-bottom: 20px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.text_pergunta {
+    padding-bottom: 20px;
+    padding-top: 5px;
+    text-align: justify;
+}
+
+.alternativa{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
 
 
 
@@ -216,15 +256,27 @@ input {
 
 .information h2{
   margin-top: 35rem;
+  margin-right: 30px;
   bottom: 0;
   right: 0;
-  width: 100%;
   text-align: right;
   z-index: 9999;
   font-family: "Fugaz One", sans-serif;
   color: var(--laranja);
   font-size: 100px;
 
+}
+
+.information_pages h2{
+  margin-top: 35rem;
+  margin-right: 30px;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  z-index: 9999;
+  font-family: "Fugaz One", sans-serif;
+  color: var(--laranja);
+  font-size: 100px;
 }
 
 
@@ -240,13 +292,4 @@ footer{
     justify-content: center;
 }
 
-.rodape2{
-    background-color: var(--vinho);
-    color: var(--branco);
-    display: flex;
-    height: 40px;
-    width: 1400px;
-    padding: 5px;
-    gap: 20px;
-}
 
