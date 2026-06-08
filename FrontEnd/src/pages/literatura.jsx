@@ -57,7 +57,17 @@ export default function Literatura() {
       >
         <option value="">Todas as Bancas</option>
         <option value="ENEM">ENEM</option>
-        <option value="FUVEST">FUVEST</option>
+        <option value="ENEM PPL">ENEM PPL</option>
+        <option value="Fuvest">FUVEST</option>
+        <option value="Unifesp">UNIFESP</option>
+        <option value="Mackenzie">MACKENZIE</option>
+        <option value="Uel">UEL</option>
+        <option value="PUC">PUC</option>
+        <option value="Unicamp">UNICAMP</option>
+        <option value="UECE">UECE</option>
+        <option value="UGEM">UGEM</option>
+        <option value="UFRRJ">UFRRJ</option>
+        <option value="SESI editora">SESI editora</option>
       </select>
 
       <select
@@ -87,10 +97,11 @@ export default function Literatura() {
           <div className="questao" key={index}>
             <h3>{q.enunciado}</h3>
 
-            <p>A) {q.alternativa_a}</p>
-            <p>B) {q.alternativa_b}</p>
-            <p>C) {q.alternativa_c}</p>
-            <p>D) {q.alternativa_d}</p>
+            <p> {q.alternativa_a}</p>
+            <p> {q.alternativa_b}</p>
+            <p>{q.alternativa_c}</p>
+            <p>{q.alternativa_d}</p>
+            <p>{q.alternativa_e}</p>
 
             <p>
               <strong>Resposta:</strong> {q.resposta}
