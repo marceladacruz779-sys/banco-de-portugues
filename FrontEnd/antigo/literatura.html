@@ -3,110 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Literatura</title>
+    <title>LITERATURA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="imagem">
-
-    
-    <header>
-      <div class="cabecalho">
-        <nav>
-          <a href="./home.html">Home</a>
-          <a href="./gramatica.html">Gramática</a>
-          <a href="./literatura.html">Literatura</a>
-        </nav>
-        <button id="logoutButton" class="btn-logout">Logout</button>
-      </div>
-    </header>
-    <section class="hero">
-      <div class="information">
-        
-        <h2>Literatura</h2>
-        
-      </div>
-    </section>
+     <header>
+  <div class="cabecalho">
+    <nav>
+        <a href="./home.html">Home</a>
+        <a href="./gramatica.html">Gramática</a>
+        <a href="./literatura.html">Literatura</a>
+      </nav>
+      <button id="logoutButton" class="btn-logout">Logout</button>
   </div>
-  
-      <section class="conteudo_barra2">
+  </header>
 
-     <div class="rodape2">
-        <h2>Matéria</h2>
-        <h2>Banca</h2>
-        <h2>Dificuldade</h2>
-     </div>
-  
-    </section>
+  <select id="banca" onchange="buscarQuestoes()">
+    <option value="">Todas as Bancas</option>
+    <option value="ENEM">ENEM</option>
+    <option value="FUVEST">FUVEST</option>
+</select>
 
-      <main class="gramatica">
-    
+<select id="tema" onchange="buscarQuestoes()">
+    <option value="">Todos os Temas</option>
+    <option value="Modernismo">Modernismo</option>
+    <option value="Romantismo">Romantismo</option>
+    <option value="Interpretação">Interpretação</option>
+</select>
 
+<select id="dificuldade" onchange="buscarQuestoes()">
+    <option value="">Todas as Dificuldades</option>
+    <option value="Baixa">Baixa</option>
+    <option value="Média">Média</option>
+    <option value="Alta">Alta</option>
+</select>
 
-    <section class="conteudo_perguntas">
+<hr>
 
-      <div class="text_Questoes">
+<div id="resultado"></div>
 
-        <h4>Talvez estejamos muito condicionados a uma ideia de ser humano e a um tipo de existência. Se a gente desestabilizar esse padrão, talvez nossa mente sofra uma espécie de ruptura, como se caíssemos num abismo. Quem disse que a gente não pode cair? Quem disse que a gente já não caiu? Houve um tempo em que o planeta que chamamos Terra juntava os continentes todos numa grande Pangeia. Se olhássemos lá de cima do céu, tiraríamos uma fotografia completamente diferente do globo. Quem sabe se, quando o astronauta Iúri Gagarin disse “a Terra é azul”, ele não fez um retrato ideal daquele momento para essa humanidade que nós pensamos ser. Ele olhou com o nosso olho, viu o que a gente queria ver. Existe muita coisa que se aproxima mais daquilo que pretendemos ver do que se podia constatar se juntássemos as duas imagens: a que você pensa e a que você tem. Se já houve outras configurações da Terra, inclusive sem a gente aqui, por que é que nos apegamos tanto a esse retrato com a gente aqui? O Antropoceno tem um sentido incisivo sobre a nossa existência, a nossa experiência comum, a ideia do que é humano. O nosso apego a uma ideia fixa de paisagem da Terra e de humanidade é a marca mais profunda do Antropoceno. </h4>
-      </div>
-
-      <div class="text_referencia">
-        <h4>Referência:
-        KRENAK, Ailton. Ideias para Adiar o Fim do Mundo. São Paulo: Companhia das Letras, 2020. p. 57-58.</h4>
-      </div>
-
-      <div class="text_pergunta">
-        <h4>(ENEM PPL - 2015) Antropoceno: considerado uma nova época geológica em que, pela primeira vez na história do planeta, as mudanças ambientais são resultado da intervenção humana. XZ
-        Considerando o período “Se a gente desestabilizar esse padrão, talvez nossa mente sofra uma espécie de ruptura, como se caíssemos num abismo” (sublinhado no texto), assinale a alternativa que indica, respectivamente, as relações lógico-sintáticas aí expressas. 
-        </h4>
-
-      </div>
-
-      <div class="alternativa">
-        <div class="alt1">
-        <h4>
-
-            a. Hipótese, suposição, comparação.
-        </h4>
-        </div>
-        <div class="alt2">
-            <h4>
-
-                b. Causa, consequência, conclusão.            
-            </h4>
-        </div>
-        <div class="alt3">
-        <h4>
-            c. Causa, oposição, analogia.            
-        </h4>
-        </div>
-        <div class="alt4">
-        <h4>
-                d. Hipótese, consequência, conformidade. 
-        </h4>
-    </div>
-
- 
-      </div>
-  
-    </section>
-
-    </main>
-
-  <footer>
-    <p>Megamind  @ SESI-SENAI</p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const logoutButton = document.getElementById('logoutButton');
-      if (!logoutButton) return;
-
-      logoutButton.addEventListener('click', function() {
-        localStorage.removeItem('jwtToken');
-        window.location.href = 'index.html';
-      });
-    });
-  </script>
+    <script src="script.js"></script> 
 </body>
 </html>
