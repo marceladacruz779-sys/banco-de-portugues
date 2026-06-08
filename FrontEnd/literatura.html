@@ -3,22 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LITERATURA</title>
+    <title>Literatura</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-     <header>
-  <div class="cabecalho">
-    <nav>
-        <a href="./home.html">Home</a>
-        <a href="./gramatica.html">Gramática</a>
-        <a href="./literatura.html">Literatura</a>
-      </nav>
-      <button id="logoutButton" class="btn-logout">Logout</button>
+  <div class="imagem">
+
+    
+    <header>
+      <div class="cabecalho">
+        <nav>
+          <a href="./home.html">Home</a>
+          <a href="./gramatica.html">Gramática</a>
+          <a href="./literatura.html">Literatura</a>
+        </nav>
+        <button id="logoutButton" class="btn-logout">Logout</button>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="information">
+        
+        <h2>Literatura</h2>
+        
+      </div>
+    </section>
   </div>
-  </header>
+  
+  <main class="home">
+    
 
+    <section class="conteudo">
 
-    <script src="script.js"></script> 
+     <div class="rodape2">
+        <h2>Matéria</h2>
+        <h2>Banca</h2>
+        <h2>Dificuldade</h2>
+     </div>
+  
+    </section>
+  </main>
+  <footer>
+    <p>Megamind  @ SESI-SENAI</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const logoutButton = document.getElementById('logoutButton');
+      if (!logoutButton) return;
+
+      logoutButton.addEventListener('click', function() {
+        localStorage.removeItem('jwtToken');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
 </body>
 </html>
