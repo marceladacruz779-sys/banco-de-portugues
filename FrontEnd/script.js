@@ -23,9 +23,14 @@ async function handleLogin(event) {
     return;
   }
 
-  const serverOrigin = window.location.origin === 'null' ? 'http://localhost:3000' : window.location.origin;
+  const defaultServerOrigin = 'http://localhost:3000';
+  const serverOrigin = window.location.origin === 'null'
+    ? defaultServerOrigin
+    : window.location.origin.includes('localhost:3000')
+      ? window.location.origin
+      : defaultServerOrigin;
   const loginUrl = `${serverOrigin}/auth/login`;
-  const homeUrl = `${serverOrigin}/index.html`;
+  const homeUrl = `${serverOrigin}/`;
 
   try {
     const response = await fetch(loginUrl, {
@@ -71,18 +76,18 @@ async function buscarQuestoes(){
     const tema = document.getElementById("tema").value;
     const dificuldade = document.getElementById("dificuldade").value;
 
-    let url = "http://localhost:3000/filtro?";
+    let url = "http://localhost:3000/questoes?";
 
     if(banca){
-        url += `instituicao=${banca}&`;
+        url += `instituicao=${encodeURIComponent(banca)}&`;
     }
 
     if(tema){
-        url += `nomet=${tema}&`;
+        url += `nomet=${encodeURIComponent(tema)}&`;
     }
 
     if(dificuldade){
-        url += `nomed=${dificuldade}`;
+        url += `nomed=${encodeURIComponent(dificuldade)}`;
     }
 
     const resultado = document.getElementById("resultado");
@@ -95,7 +100,7 @@ async function buscarQuestoes(){
         let errText = '';
         try { errText = await resposta.text(); } catch { errText = resposta.statusText; }
         showMessage('Erro ao buscar questões: ' + (errText || resposta.statusText));
-        console.error('Fetch /filtro error:', resposta.status, errText);
+        console.error('Fetch /questoes error:', resposta.status, errText);
         return;
       }
 
@@ -103,7 +108,7 @@ async function buscarQuestoes(){
 
       if (!Array.isArray(questoes)) {
         showMessage('Resposta inesperada do servidor. Veja o console para mais detalhes.');
-        console.error('Resposta /filtro não é array:', questoes);
+        console.error('Resposta /questoes não é array:', questoes);
         return;
       }
 

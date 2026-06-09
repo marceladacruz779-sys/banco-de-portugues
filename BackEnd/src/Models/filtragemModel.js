@@ -2,24 +2,31 @@ const pool = require("../Config/database");
 
 async function buscarQuestoes(nomet, instituicao, nomed) {
 
-    let sql = "SELECT * FROM filtragem WHERE 1=1";
+    let sql = `
+        SELECT q.*
+        FROM questao q
+        LEFT JOIN vestibular v ON q.vestibular = v.idv
+        LEFT JOIN tema t ON q.tema = t.idt
+        LEFT JOIN dificuldade d ON q.dificuldade = d.idd
+        WHERE 1=1
+    `;
     let valores = [];
     let contador = 1;
 
     if (nomet) {
-        sql += ` AND nomet ILIKE $${contador}`;
+        sql += ` AND t.nomet ILIKE $${contador}`;
         valores.push(`%${nomet}%`);
         contador++;
     }
 
     if (instituicao) {
-        sql += ` AND instituicao ILIKE $${contador}`;
+        sql += ` AND v.instituicao ILIKE $${contador}`;
         valores.push(`%${instituicao}%`);
         contador++;
     }
 
     if (nomed) {
-        sql += ` AND nomed ILIKE $${contador}`;
+        sql += ` AND d.nomed ILIKE $${contador}`;
         valores.push(`%${nomed}%`);
         contador++;
     }
