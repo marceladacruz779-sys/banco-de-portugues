@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Navbar} from "../components/Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Gramatica() {
   const [banca, setBanca] = useState("");
@@ -9,18 +9,18 @@ export default function Gramatica() {
 
   useEffect(() => {
     async function buscarQuestoes() {
-      let url = "http://localhost:3000/filtro?";
+      let url = "http://localhost:3000/questoes?";
 
       if (banca) {
-        url += `instituicao=${banca}&`;
+        url += `instituicao=${encodeURIComponent(banca)}&`;
       }
 
       if (tema) {
-        url += `nomet=${tema}&`;
+        url += `nomet=${encodeURIComponent(tema)}&`;
       }
 
       if (dificuldade) {
-        url += `nomed=${dificuldade}`;
+        url += `nomed=${encodeURIComponent(dificuldade)}`;
       }
 
       try {

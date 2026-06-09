@@ -1,9 +1,13 @@
-import "./styles.css";
+import "../styles.css";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Home() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("jwtToken");
-    window.location.href = "/"; // ajuste a rota conforme seu projeto
+    navigate("/login");
   };
 
   return (
@@ -12,7 +16,7 @@ function Home() {
         <header>
           <div className="cabecalho">
             <nav>
-              <a href="/home">Home</a>
+              <a href="/">Home</a>
               <a href="/gramatica">Gramática</a>
               <a href="/literatura">Literatura</a>
             </nav>
