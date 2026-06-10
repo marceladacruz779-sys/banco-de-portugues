@@ -41,7 +41,16 @@ button {
     font: inherit;
 }
 
+main {
+    background-color: var(--amarelo);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
 .body-login {
+    background-color: var(--amarelo);
     background-image: url('../public/mainImg.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,6 +61,7 @@ button {
     justify-content: center;
 }
 
+
 .imagem {
     background-image: url('../public/mainImg.png');
     background-position: center;
@@ -59,6 +69,14 @@ button {
     background-size: cover;
     width: 100%;
     min-height: 100vh;
+}
+.hero {
+    width: 100%;
+    position: relative;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 85vh;
+    padding: 2rem 1rem;
 }
 
 header {
@@ -130,14 +148,6 @@ a:hover {
     filter: brightness(1.05);
 }
 
-.hero {
-    width: 100%;
-    position: relative;
-    justify-content: flex-end;
-    align-items: flex-end;
-    min-height: 85vh;
-    padding: 2rem 1rem;
-}
 
 .information,
 .information_pages {
@@ -175,11 +185,6 @@ h1 {
     margin-bottom: 1rem;
 }
 
-main {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
 .conteudo {
     width: min(1200px, 100%);
@@ -345,6 +350,11 @@ footer p {
     margin: 0;
 }
 
+.filtro {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
 
 select {
 

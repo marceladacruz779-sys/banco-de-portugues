@@ -40,11 +40,13 @@ export default function Gramatica() {
     <>
       
       <Navbar />
+      
+ <div className="filtro">
 
       <select
         value={banca}
         onChange={(e) => setBanca(e.target.value)}
-      >
+        >
 
         <div className="barra">
         <option value="">Todas as Bancas</option>
@@ -67,7 +69,7 @@ export default function Gramatica() {
       <select
         value={tema}
         onChange={(e) => setTema(e.target.value)}
-      >
+        >
         <option value="">Todos os Temas</option>
         <option value="Variação Linguística">Variação Linguística</option>
         <option value="Análise Sintática">Análise Sintática</option>
@@ -76,13 +78,14 @@ export default function Gramatica() {
       <select
         value={dificuldade}
         onChange={(e) => setDificuldade(e.target.value)}
-      >
+        >
         <option value="">Todas as Dificuldades</option>
         <option value="Baixa">Baixa</option>
         <option value="Média">Média</option>
         <option value="Alta">Alta</option>
       </select>
 
+        </div>
       <hr />
 
       <div id="resultado">

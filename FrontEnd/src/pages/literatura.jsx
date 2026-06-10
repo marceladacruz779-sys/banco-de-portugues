@@ -39,6 +39,7 @@ export default function Literatura() {
   return (
     <>
       <Navbar />
+<div className="filtro">
 
       <select
         value={banca}
@@ -77,6 +78,8 @@ export default function Literatura() {
         <option value="Média">Média</option>
         <option value="Alta">Alta</option>
       </select>
+      
+      </div>
 
       <hr />
 
