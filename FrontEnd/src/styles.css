@@ -42,7 +42,7 @@ button {
 }
 
 .body-login {
-    background-image: url('../public/image\ \(2\).png');
+    background-image: url('../public/mainImg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -53,7 +53,7 @@ button {
 }
 
 .imagem {
-    background-image: url('../public/image\ \(2\).png');
+    background-image: url('../public/mainImg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -80,10 +80,10 @@ nav {
     justify-content: center;
     gap: 20rem;
     background-color: var(--amarelo);
-    width: 100%;
     border-radius: 8px;
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 2rem;
 }
+
 
 a {
     text-decoration: none;
@@ -103,7 +103,7 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: none;
+    border: 1.5px solid white;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
@@ -343,6 +343,78 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+
+select {
+
+    background-color:var(--rosa2);
+    border: 2px solid var(--vinho);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--branco);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+    margin: 1rem 0.5rem;
+}
+
+select:hover {
+    border-color: var(--branco);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--laranja);
+    box-shadow: 0 0 8px rgba(246, 139, 81, 0.3);
+}
+
+
+
+#resultado {
+    width: min(1200px, 100%);
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.questao {
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 500px;
+    padding: 1.5rem;
+    background-color: var(--branco);
+    border: 2px solid var(--vinho);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.questao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.questao h3 {
+    color: var(--vinho);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.questao p {
+    color: var(--preto);
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+.questao strong {
+    color: var(--rosa2);
 }
 
 @media (max-width: 1024px) {

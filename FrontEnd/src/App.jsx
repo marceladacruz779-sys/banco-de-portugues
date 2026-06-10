@@ -3,6 +3,7 @@ import Home from './pages/home';
 import Literatura from './pages/literatura';
 import Gramatica from './pages/gramatica';
 import Login from './pages/Login';
+import './styles.css';
 import './App.css';
 
 function ProtectedRoute({ children }) {

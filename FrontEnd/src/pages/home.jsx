@@ -13,22 +13,8 @@ function Home() {
   return (
     <>
       <div className="imagem">
-        <header>
-          <div className="cabecalho">
-            <nav>
-              <a href="/">Home</a>
-              <a href="/gramatica">Gramática</a>
-              <a href="/literatura">Literatura</a>
-            </nav>
-
-            <button
-              onClick={handleLogout}
-              className="btn-logout"
-            >
-              Logout
-            </button>
-          </div>
-        </header>
+       
+       <Navbar></Navbar>
 
         <section className="hero">
           <div className="information">
