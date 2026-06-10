@@ -1,3 +1,4 @@
+import "../styles.css";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 
@@ -97,6 +98,15 @@ export default function Literatura() {
             <p>
               <strong>Comentário:</strong> {q.comentario}
             </p>
+
+            {(q.material || q.material_apoio || q.material_de_apoio) && (
+              <div className="material">
+                <p>
+                  <strong>Material de apoio:</strong>
+                </p>
+                <p>{q.material || q.material_apoio || q.material_de_apoio}</p>
+              </div>
+            )}
 
             <hr />
           </div>

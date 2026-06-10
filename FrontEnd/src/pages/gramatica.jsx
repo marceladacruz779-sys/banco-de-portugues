@@ -1,3 +1,4 @@
+import "../styles.css";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 
@@ -44,6 +45,8 @@ export default function Gramatica() {
         value={banca}
         onChange={(e) => setBanca(e.target.value)}
       >
+
+        <div className="barra">
         <option value="">Todas as Bancas</option>
         <option value="ENEM">ENEM</option>
         <option value="ENEM PPL">ENEM PPL</option>
@@ -57,7 +60,9 @@ export default function Gramatica() {
         <option value="UGEM">UGEM</option>
         <option value="UFRRJ">UFRRJ</option>
         <option value="SESI editora">SESI editora</option>
+         </div>
       </select>
+     
 
       <select
         value={tema}
@@ -98,6 +103,15 @@ export default function Gramatica() {
             <p>
               <strong>Comentário:</strong> {q.comentario}
             </p>
+
+            {(q.material || q.material_apoio || q.material_de_apoio) && (
+              <div className="material">
+                <p>
+                  <strong>Material de apoio:</strong>
+                </p>
+                <p>{q.material || q.material_apoio || q.material_de_apoio}</p>
+              </div>
+            )}
 
             <hr />
           </div>

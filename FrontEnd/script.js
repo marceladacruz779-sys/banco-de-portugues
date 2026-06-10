@@ -113,6 +113,7 @@ async function buscarQuestoes(){
       }
 
       questoes.forEach(q => {
+        const mat = q.material || q.material_apoio || q.material_de_apoio || '';
         resultado.innerHTML += `
           <div class="questao">
 
@@ -126,6 +127,8 @@ async function buscarQuestoes(){
             <p><strong>Resposta:</strong> ${q.resposta}</p>
 
             <p><strong>Comentário:</strong> ${q.comentario}</p>
+
+            ${mat ? `<p><strong>Material de apoio:</strong> ${mat}</p>` : ''}
 
             <hr>
 
