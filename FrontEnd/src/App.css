@@ -1,0 +1,96 @@
+/* Shared responsive refinements */
+@media (max-width: 900px) {
+  .site-header {
+    padding-inline: 12px;
+  }
+
+  .site-navbar {
+    gap: 8px;
+  }
+
+  .site-nav {
+    gap: 8px;
+    padding-inline: 12px;
+  }
+
+  .site-nav a {
+    font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+  }
+
+  .btn-logout {
+    min-width: 108px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 8px 10px 0;
+  }
+
+  .site-navbar {
+    gap: 7px;
+  }
+
+  .site-nav {
+    height: 42px;
+    gap: 4px;
+    padding-inline: 8px;
+  }
+
+  .site-nav a {
+    font-size: 0.86rem;
+  }
+
+  .btn-logout {
+    min-width: 88px;
+    height: 42px;
+    padding-inline: 12px;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header {
+    padding-inline: 6px;
+  }
+
+  .site-navbar {
+    gap: 5px;
+  }
+
+  .site-nav {
+    padding-inline: 5px;
+  }
+
+  .site-nav a {
+    font-size: 0.7rem;
+  }
+
+  .btn-logout {
+    min-width: 66px;
+    padding-inline: 6px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header {
+    padding-top: 5px;
+  }
+
+  .site-nav,
+  .btn-logout {
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

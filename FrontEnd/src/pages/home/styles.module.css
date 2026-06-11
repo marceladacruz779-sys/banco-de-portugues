@@ -1,0 +1,122 @@
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--amarelo);
+  border: 3px solid #17201c;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  background-image: url("../../../public/mainImg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroTitle {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 25px 32px;
+}
+
+.heroTitle h1 {
+  margin: 0;
+  color: var(--amarelo);
+  font-family: "Fugaz One", sans-serif;
+  font-size: clamp(3.6rem, 8vw, 7rem);
+  line-height: 1;
+  text-align: right;
+  text-shadow: 0 2px 1px rgba(70, 21, 27, 0.22);
+}
+
+.main {
+  background-color: var(--amarelo);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  padding: 50px 42px 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(50px, 14vw, 180px);
+}
+
+.aboutCard {
+  flex: 1 1 0;
+  max-width: 360px;
+  text-align: center;
+}
+
+.aboutCard h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  line-height: 1.1;
+}
+
+.aboutCard p {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.12rem);
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.footer {
+  min-height: 67px;
+  margin-top: auto;
+  background-color: var(--vinho);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 72vh;
+  }
+
+  .heroTitle h1 {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+  .about {
+    padding: 53px 42px 47px;
+    gap: 54px;
+  }
+
+  .aboutCard h2 {
+    margin-bottom: 14px;
+    font-size: 1.4rem;
+  }
+
+  .aboutCard p {
+    font-size: 0.93rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 62vh;
+  }
+
+  .about {
+    flex-direction: column;
+    align-items: center;
+    gap: 42px;
+    padding-inline: 30px;
+  }
+}

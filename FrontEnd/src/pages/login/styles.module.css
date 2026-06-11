@@ -1,0 +1,129 @@
+.page {
+  min-height: 100vh;
+  padding: 32px 20px;
+  background-color: transparent;
+  background-image: url("../../../public/mainImg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: min(540px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-3vh);
+}
+
+.title {
+  margin: 0 0 28px;
+  color: var(--amarelo);
+  font-family: "Fugaz One", sans-serif;
+  font-size: clamp(5rem, 16vw, 8.5rem);
+  font-weight: 400;
+  line-height: 0.8;
+  text-align: center;
+}
+
+.panel {
+  width: clamp(300px, 55vw, 430px);
+  max-width: 100%;
+  padding: 27px 30px 20px;
+  border-radius: 27px;
+  background-color: var(--amarelo);
+}
+
+.panel h2 {
+  margin: 0 0 25px;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.formRow :global(.material-symbols-outlined) {
+  flex: 0 0 27px;
+  color: var(--vinho);
+  font-size: 26px;
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 24;
+}
+
+.formRow label {
+  flex: 0 0 48px;
+  font-size: 0.8rem;
+}
+
+.formRow input {
+  min-width: 0;
+  max-width: none;
+  height: 39px;
+  flex: 1;
+  padding: 0 10px;
+  border: 2px solid var(--vinho);
+  border-radius: 9px;
+  background-color: var(--amarelo);
+  font-size: 0.78rem;
+  outline: none;
+}
+
+.formRow input:focus {
+  box-shadow: 0 0 0 2px rgba(70, 21, 27, 0.18);
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: center;
+}
+
+.submit {
+  width: 205px;
+  min-height: 38px;
+  border: 0;
+  border-radius: 9px;
+  background-color: var(--vinho);
+  color: var(--branco);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.message {
+  margin: -14px 0 12px;
+  color: var(--vinho);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-inline: 14px;
+  }
+
+  .content {
+    transform: translateY(-1vh);
+  }
+
+  .panel {
+    width: 100%;
+    padding: 25px 18px 18px;
+  }
+
+  .formRow {
+    gap: 6px;
+  }
+}

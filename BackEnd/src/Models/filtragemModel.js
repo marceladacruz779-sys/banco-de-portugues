@@ -3,7 +3,13 @@ const pool = require("../Config/database");
 async function buscarQuestoes(nomet, instituicao, nomed) {
 
     let sql = `
-        SELECT q.*
+        SELECT
+            q.*,
+            q.alt_a AS alternativa_a,
+            q.alt_b AS alternativa_b,
+            q.alt_c AS alternativa_c,
+            q.alt_d AS alternativa_d,
+            q.alt_e AS alternativa_e
         FROM questao q
         LEFT JOIN vestibular v ON q.vestibular = v.idv
         LEFT JOIN tema t ON q.tema = t.idt
