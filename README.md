@@ -46,8 +46,3 @@ Como rodar o Front-End
 - npm i jsonwebtoken -> BackEnd
 - arquivo .env na raíz
 =========
-
-
-Rotas dos selects
-======
-O SELECT com view será utilizado na rota .get (http:/localhost:3000/filtragem/:nomed/:instituicao/:nomed). E o SELECT sem view, será na rota .get (http:/localhost:3000/filtragem/) que exibirá todo o conteúdo.
