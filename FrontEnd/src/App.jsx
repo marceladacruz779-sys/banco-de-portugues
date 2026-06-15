@@ -11,6 +11,7 @@ import Home from "./pages/home/Home";
 import Literatura from "./pages/literatura/Literatura";
 import Login from "./pages/login/Login";
 
+ // Procura o token salvo no localStorage, sóe não existir, direciona para o login
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("jwtToken");
   return token ? children : <Navigate to="/login" />;

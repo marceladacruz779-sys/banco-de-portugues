@@ -6,7 +6,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //permite trocar de pagina
 
   const showMessage = (text) => {
     setMessage(text);
@@ -14,13 +14,16 @@ export default function Login() {
   };
 
   const handleLogin = async (event) => {
-    event.preventDefault();
+    event.preventDefault();     // Sem isso a página recarregaria.
 
     if (!email || !password) {
       showMessage("Preencha e-mail e senha.");
       return;
     }
 
+
+
+    // Define qual servidor será utilizado.
     const defaultServerOrigin = "http://localhost:3000";
     const serverOrigin =
       window.location.origin === "null"
@@ -30,18 +33,27 @@ export default function Login() {
           : defaultServerOrigin;
 
     try {
+        // Faz uma requisição POST para o backend.
       const response = await fetch(`${serverOrigin}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+
+        // Envia email e senha para o servidor.
         body: JSON.stringify({ email, password }),
       });
 
+
+     // Descobre qual o tipo de resposta recebida.
       const contentType = response.headers.get("content-type");
       let data;
 
+      // Se a resposta for JSON.
       if (contentType?.includes("application/json")) {
         data = await response.json();
-      } else {
+      }
+      
+      // Se não for JSON, converte
+      else {
         const text = await response.text();
         try {
           data = text ? JSON.parse(text) : {};
@@ -54,7 +66,11 @@ export default function Login() {
         throw new Error(data.mensagem || "Falha no login");
       }
 
+
+       // Salva o token JWT no navegador.
       localStorage.setItem("jwtToken", data.token);
+
+      //página home
       navigate("/");
     } catch (error) {
       if (error instanceof TypeError) {
