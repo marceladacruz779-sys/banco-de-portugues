@@ -14,10 +14,13 @@ async function buscarQuestoes(nomet, instituicao, nomed) {
         LEFT JOIN vestibular v ON q.vestibular = v.idv
         LEFT JOIN tema t ON q.tema = t.idt
         LEFT JOIN dificuldade d ON q.dificuldade = d.idd
-        WHERE 1=1
+        WHERE 1=1 
     `;
-    let valores = [];
-    let contador = 1;
+
+//o where 1=1 substitui o  WHERE t.nomet ILIKE $1
+
+    let valores = []; //valores do filtro
+    let contador = 1; //Contador dos parâmetros da questão
 
     if (nomet) {
         sql += ` AND t.nomet ILIKE $${contador}`;
