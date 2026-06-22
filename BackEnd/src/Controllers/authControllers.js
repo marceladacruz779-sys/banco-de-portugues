@@ -1,7 +1,7 @@
 // Importa o jsonwebtoken, para verificação de segurança por token
 const jwt = require('jsonwebtoken');
 
-// Carrega as informaçõe sdo usuário de acordo com o .env
+// Carrega as informações do usuário de acordo com o .env
 const AUTH_USER = process.env.AUTH_USER;
 const AUTH_PASSWORD = process.env.AUTH_PASSWORD;
 
