@@ -70,7 +70,6 @@ export default function Login() {
        // Salva o token JWT no navegador.
       localStorage.setItem("jwtToken", data.token);
 
-      //página home
       navigate("/");
     } catch (error) {
       if (error instanceof TypeError) {

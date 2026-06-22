@@ -3,21 +3,9 @@ const pool = require("../Config/database");
 async function buscarQuestoes(nomet, instituicao, nomed) {
 
     let sql = `
-        SELECT
-            q.*,
-            q.alt_a AS alternativa_a,
-            q.alt_b AS alternativa_b,
-            q.alt_c AS alternativa_c,
-            q.alt_d AS alternativa_d,
-            q.alt_e AS alternativa_e
-        FROM questao q
-        LEFT JOIN vestibular v ON q.vestibular = v.idv
-        LEFT JOIN tema t ON q.tema = t.idt
-        LEFT JOIN dificuldade d ON q.dificuldade = d.idd
-        WHERE 1=1 
+        SELECT * FROM filtragem
     `;
 
-//o where 1=1 substitui o  WHERE t.nomet ILIKE $1
 
     let valores = []; //valores do filtro
     let contador = 1; //Contador dos parâmetros da questão
