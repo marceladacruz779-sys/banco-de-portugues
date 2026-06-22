@@ -18,9 +18,21 @@ export default function Literatura() {
 
       try {
         const resposta = await fetch(url);
-        setQuestoes(await resposta.json());
+        const dados = await resposta.json();
+
+        console.log("URL:", url);
+        console.log("Status:", resposta.status);
+        console.log("Dados recebidos:", dados);
+
+        if (Array.isArray(dados)) {
+          setQuestoes(dados);
+        } else {
+          console.error("A API não retornou um array:", dados);
+          setQuestoes([]);
+        }
       } catch (error) {
         console.error("Erro ao buscar questões:", error);
+        setQuestoes([]);
       }
     }
 
@@ -39,7 +51,10 @@ export default function Literatura() {
       <div className={styles.filters}>
         <label className={styles.filterGroup}>
           <span>Matéria</span>
-          <select value={tema} onChange={(event) => setTema(event.target.value)}>
+          <select
+            value={tema}
+            onChange={(event) => setTema(event.target.value)}
+          >
             <option value="">Todos os Temas</option>
             <option value="Modernismo">Modernismo</option>
             <option value="Romantismo">Romantismo</option>
@@ -48,7 +63,10 @@ export default function Literatura() {
 
         <label className={styles.filterGroup}>
           <span>Banca</span>
-          <select value={banca} onChange={(event) => setBanca(event.target.value)}>
+          <select
+            value={banca}
+            onChange={(event) => setBanca(event.target.value)}
+          >
             <option value="">Todas as Bancas</option>
             <option value="ENEM">ENEM</option>
             <option value="ENEM PPL">ENEM PPL</option>
@@ -80,35 +98,61 @@ export default function Literatura() {
       </div>
 
       <div className={styles.results}>
-        {questoes.map((questao, index) => (
-          <details className={styles.question} key={questao.idq || index}>
-            <summary className={styles.questionSummary}>
-              <h3>{questao.enunciado}</h3>
-              {[
-                questao.alternativa_a,
-                questao.alternativa_b,
-                questao.alternativa_c,
-                questao.alternativa_d,
-                questao.alternativa_e,
-              ].filter(Boolean).map((alternativa) => (
-                <p key={alternativa}>{alternativa}</p>
-              ))}
-              <span className={styles.expandIcon} aria-hidden="true">&lt;</span>
-            </summary>
+        {Array.isArray(questoes) &&
+          questoes.map((questao, index) => (
+            <details
+              className={styles.question}
+              key={questao.idq || index}
+            >
+              <summary className={styles.questionSummary}>
+                <h3>{questao.enunciado}</h3>
 
-            <div className={styles.answer}>
-              <p><strong>Resposta:</strong> {questao.resposta}</p>
-              <p><strong>Comentário:</strong> {questao.comentario}</p>
+                {[
+                  questao.alternativa_a,
+                  questao.alternativa_b,
+                  questao.alternativa_c,
+                  questao.alternativa_d,
+                  questao.alternativa_e,
+                ]
+                  .filter(Boolean)
+                  .map((alternativa) => (
+                    <p key={alternativa}>{alternativa}</p>
+                  ))}
 
-              {(questao.material || questao.material_apoio || questao.material_de_apoio) && (
-                <div>
-                  <p><strong>Material de apoio:</strong></p>
-                  <p>{questao.material || questao.material_apoio || questao.material_de_apoio}</p>
-                </div>
-              )}
-            </div>
-          </details>
-        ))}
+                <span
+                  className={styles.expandIcon}
+                  aria-hidden="true"
+                >
+                  &lt;
+                </span>
+              </summary>
+
+              <div className={styles.answer}>
+                <p>
+                  <strong>Resposta:</strong> {questao.resposta}
+                </p>
+
+                <p>
+                  <strong>Comentário:</strong> {questao.comentario}
+                </p>
+
+                {(questao.material ||
+                  questao.material_apoio ||
+                  questao.material_de_apoio) && (
+                  <div>
+                    <p>
+                      <strong>Material de apoio:</strong>
+                    </p>
+                    <p>
+                      {questao.material ||
+                        questao.material_apoio ||
+                        questao.material_de_apoio}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </details>
+          ))}
       </div>
     </div>
   );
