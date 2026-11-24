@@ -12,10 +12,10 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     port: Number(process.env.DB_PORT),
 
-    // Configuração SSL para o Supabase
-    ssl: {
-        rejectUnauthorized: false
-    },
+    // Supabase usa SSL por padrão; servidores locais podem desativá-lo via DB_SSL=false.
+    ssl: process.env.DB_SSL === 'false'
+        ? false
+        : { rejectUnauthorized: false },
 
     // Configurações para ambiente serverless
     max: 1,

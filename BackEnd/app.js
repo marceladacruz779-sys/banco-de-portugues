@@ -23,7 +23,10 @@ app.get('/', (req, res) => {
 });
 
 // Rota do login
+
 const authRoutes = require('./src/Routes/authRoutes');
+
+const authRoutes = require('../BackEnd/src/Routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 // Rota das questões

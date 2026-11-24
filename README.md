@@ -37,7 +37,7 @@ Na atualização do projeto, o sistema passou por uma evolução para ampliar su
 2. Acesse a pasta principal do projeto.
 3. Entre na pasta `BackEnd` pelo terminal.
 4. Execute `npm install` para instalar as dependências.
-5. Configure as variáveis de ambiente necessárias no arquivo `.env`.
+5. Configure as variáveis de ambiente necessárias no arquivo `.env`. Para PostgreSQL local sem SSL, defina `DB_SSL=false`; para o Supabase, mantenha SSL habilitado (padrão).
 6. Inicie o servidor utilizando o comando definido no `package.json`, como `npm start` ou `node app.js`, conforme a configuração do projeto.
 
 A API poderá ser testada utilizando ferramentas como Insomnia ou Postman, por meio dos endpoints disponíveis.
@@ -96,6 +96,11 @@ O **Hub do Conhecimento** é um sistema desenvolvido com o objetivo de centraliz
 O projeto foi desenvolvido utilizando tecnologias de Front-End e Back-End, com integração a um banco de dados relacional. O sistema conta com autenticação de usuários por meio de JWT (JSON Web Token), restringindo o acesso às funcionalidades que exigem login, além de oferecer recursos de busca e organização de conteúdos.
 
 Nesta etapa de evolução, o sistema passou por uma atualização de sua infraestrutura, migrando o banco de dados para o Supabase, que oferece gerenciamento em nuvem utilizando PostgreSQL, e implementando a hospedagem da aplicação Web na Vercel. Também foi desenvolvida uma versão Mobile independente, utilizando React Native, que consome os serviços disponibilizados pela API deste repositório.
+
+## Documentações
+
+1. Técnica: https://docs.google.com/document/d/1LyGP2O-OBgxO33DJHcT9XqHA-HiMc7-T-QO9v7WCijA/edit?usp=sharing
+2. Usabilidade: https://docs.google.com/document/d/1kPiytU4YwnvRUQxxyDJNBZU-JidLrcf59-g0O3KrJiQ/edit?usp=sharing
 
 ## Grupo MegaMind — Integrantes
 
