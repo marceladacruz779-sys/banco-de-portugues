@@ -37,7 +37,7 @@ Na atualização do projeto, o sistema passou por uma evolução para ampliar su
 2. Acesse a pasta principal do projeto.
 3. Entre na pasta `BackEnd` pelo terminal.
 4. Execute `npm install` para instalar as dependências.
-5. Configure as variáveis de ambiente necessárias no arquivo `.env`.
+5. Configure as variáveis de ambiente necessárias no arquivo `.env`. Para PostgreSQL local sem SSL, defina `DB_SSL=false`; para o Supabase, mantenha SSL habilitado (padrão).
 6. Inicie o servidor utilizando o comando definido no `package.json`, como `npm start` ou `node app.js`, conforme a configuração do projeto.
 
 A API poderá ser testada utilizando ferramentas como Insomnia ou Postman, por meio dos endpoints disponíveis.
