@@ -1,30 +1,32 @@
-// Importa o dotenv, para carregar as informações do arquivo .env
+
+// Importa o dotenv para carregar as variáveis locais
 require('dotenv').config();
 
-// Importa o Pool (conexões de reutilização) do PostgreSQL
 const { Pool } = require('pg');
 
-// Busca as variáveis no arquivo .env
+// Configuração da conexão com o PostgreSQL
 const pool = new Pool({
-  user: process.env.DB_USER,           
-  host: process.env.DB_HOST,           
-  database: process.env.DB_NAME,      
-  password: process.env.DB_PASSWORD, 
-  port: parseInt(process.env.DB_PORT),
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: Number(process.env.DB_PORT),
+
+    // Configuração SSL para o Supabase
+    ssl: {
+        rejectUnauthorized: false
+    },
+
+    // Configurações para ambiente serverless
+    max: 1,
+    idleTimeoutMillis: 10000,
+    connectionTimeoutMillis: 10000
 });
 
-// Teste de conexão com o banco
-pool.connect((erro, client, release) => {
-  if (erro) {
-    console.error('❌ Erro ao conectar ao PostgreSQL:', erro.message);
-    console.error('💡 Verifique suas credenciais no arquivo .env');
-  } else {
-    console.log('✅ Conectado ao PostgreSQL!');
-    console.log(`📊 Banco: ${process.env.DB_NAME}`);
-    console.log(`🏠 Host: ${process.env.DB_HOST}:${process.env.DB_PORT}`);
-    release();
-  }
+// Captura erros inesperados no pool
+pool.on('error', (erro) => {
+    console.error('Erro inesperado no PostgreSQL:', erro.message);
 });
 
-// Exporta a função do pool
+// Exporta o pool para ser utilizado no projeto
 module.exports = pool;
