@@ -1,7 +1,7 @@
 <span id="top"></span>
 <h1 align="center">
   <img src="https://i.pinimg.com/736x/ce/b0/5f/ceb05f23845eca7b618127f6ac81f4e1.jpg" width="128" />
-  <br> Hub do conhecimento | Língua Portuguesa
+  <br> Hub do conhecimento WEB | Língua Portuguesa
 
 ## Descrição
 
@@ -53,14 +53,6 @@ A API poderá ser testada utilizando ferramentas como Insomnia ou Postman, por m
 
 Após a inicialização, acesse o endereço local apresentado pelo terminal para visualizar a aplicação no navegador.
 
-## Como executar o aplicativo Mobile
-
-1. Clone o repositório correspondente à versão Mobile.
-2. Acesse a pasta do projeto pelo terminal.
-3. Execute `npm install` para instalar as dependências.
-4. Configure o endereço da API de produção ou o endereço utilizado no ambiente de desenvolvimento.
-5. Execute `npx expo start` para iniciar o servidor do Expo.
-6. Utilize o Expo Go ou um emulador Android para abrir e testar o aplicativo.
 
 ## Banco de Dados e Infraestrutura em Nuvem
 
@@ -79,3 +71,36 @@ Antes de executar o projeto, é necessário instalar as dependências de cada ap
 
 Também é necessário configurar o arquivo `.env` com as variáveis de ambiente exigidas pelo sistema. Esse arquivo não deve ser enviado ao GitHub, devendo permanecer protegido por meio do `.gitignore`.
 
+
+
+## Descrição
+
+O **Hub do Conhecimento** é um sistema desenvolvido com o objetivo de centralizar e facilitar o acesso a conteúdos de Língua Portuguesa, permitindo a consulta de informações organizadas por diferentes categorias.
+
+O projeto foi desenvolvido utilizando tecnologias de Front-End e Back-End, com integração a um banco de dados relacional. O sistema conta com autenticação de usuários por meio de JWT (JSON Web Token), restringindo o acesso às funcionalidades que exigem login, além de oferecer recursos de busca e organização de conteúdos.
+
+Nesta etapa de evolução, o sistema passou por uma atualização de sua infraestrutura, migrando o banco de dados para o Supabase, que oferece gerenciamento em nuvem utilizando PostgreSQL, e implementando a hospedagem da aplicação Web na Vercel. Também foi desenvolvida uma versão Mobile independente, utilizando React Native, que consome os serviços disponibilizados pela API deste repositório.
+
+## Grupo MegaMind — Integrantes
+
+- Beatryz Caroline dos Santos Rodrigues
+- Beatriz Santos de Oliveira
+- Pietra Del Vecchio Pivatti
+- Isadora Gregatti Danelon
+- Marcela Pereira
+
+## Descrição
+
+O **Hub do Conhecimento** é um sistema desenvolvido com o objetivo de centralizar e facilitar o acesso a conteúdos de Língua Portuguesa, permitindo a consulta de informações organizadas por diferentes categorias.
+
+O projeto foi desenvolvido utilizando tecnologias de Front-End e Back-End, com integração a um banco de dados relacional. O sistema conta com autenticação de usuários por meio de JWT (JSON Web Token), restringindo o acesso às funcionalidades que exigem login, além de oferecer recursos de busca e organização de conteúdos.
+
+Nesta etapa de evolução, o sistema passou por uma atualização de sua infraestrutura, migrando o banco de dados para o Supabase, que oferece gerenciamento em nuvem utilizando PostgreSQL, e implementando a hospedagem da aplicação Web na Vercel. Também foi desenvolvida uma versão Mobile independente, utilizando React Native, que consome os serviços disponibilizados pela API deste repositório.
+
+## Grupo MegaMind — Integrantes
+
+- Beatryz Caroline dos Santos Rodrigues
+- Beatriz Santos de Oliveira
+- Pietra Del Vecchio Pivatti
+- Isadora Gregatti Danelon
+- Marcela Pereira
