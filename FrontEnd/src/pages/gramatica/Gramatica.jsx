@@ -7,24 +7,48 @@ export default function Gramatica() {
   const [tema, setTema] = useState("");
   const [dificuldade, setDificuldade] = useState("");
   const [questoes, setQuestoes] = useState([]);
+  const [erro, setErro] = useState("");
+  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    async function buscarQuestoes() {
-      let url = "/api/questoes?";
+    const controller = new AbortController();
 
-      if (banca) url += `instituicao=${encodeURIComponent(banca)}&`;
-      if (tema) url += `nomet=${encodeURIComponent(tema)}&`;
-      if (dificuldade) url += `nomed=${encodeURIComponent(dificuldade)}`;
+    async function buscarQuestoes() {
+      const parametros = new URLSearchParams();
+      if (banca) parametros.set("instituicao", banca);
+      if (tema) parametros.set("nomet", tema);
+      if (dificuldade) parametros.set("nomed", dificuldade);
+
+      setCarregando(true);
+      setErro("");
 
       try {
-        const resposta = await fetch(url);
-        setQuestoes(await resposta.json());
+        const resposta = await fetch(`/api/questoes?${parametros}`, {
+          signal: controller.signal,
+        });
+        if (!resposta.ok) {
+          throw new Error(`A API respondeu com status ${resposta.status}`);
+        }
+
+        const dados = await resposta.json();
+        if (!Array.isArray(dados)) {
+          throw new Error("A API não retornou uma lista de questões");
+        }
+
+        setQuestoes(dados);
       } catch (error) {
+        if (error.name === "AbortError") return;
         console.error("Erro ao buscar questões:", error);
+        setQuestoes([]);
+        setErro("Não foi possível carregar as questões. Tente novamente.");
+      } finally {
+        if (!controller.signal.aborted) setCarregando(false);
       }
     }
 
     buscarQuestoes();
+
+    return () => controller.abort();
   }, [banca, tema, dificuldade]);
 
   return (
@@ -72,14 +96,19 @@ export default function Gramatica() {
             onChange={(event) => setDificuldade(event.target.value)}
           >
             <option value="">Todas as Dificuldades</option>
-            <option value="Baixa">Baixa</option>
-            <option value="Média">Média</option>
-            <option value="Alta">Alta</option>
+            <option value="Fácil">Baixa</option>
+            <option value="Médio">Média</option>
+            <option value="Difícil">Alta</option>
           </select>
         </label>
       </div>
 
       <div className={styles.results}>
+        {carregando && <p role="status">Carregando questões...</p>}
+        {erro && <p role="alert">{erro}</p>}
+        {!carregando && !erro && questoes.length === 0 && (
+          <p>Nenhuma questão encontrada para esses filtros.</p>
+        )}
         {questoes.map((questao, index) => (
           <details className={styles.question} key={questao.idq || index}>
             <summary className={styles.questionSummary}>
