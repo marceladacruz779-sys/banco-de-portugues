@@ -23,11 +23,11 @@ app.get('/', (req, res) => {
 });
 
 // Rota do login
-const authRoutes = require('./Routes/authRoutes');
+const authRoutes = require('./src/Routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 // Rota das questões
-const filtragemRoutes = require('./Routes/filtragemRoutes');
+const filtragemRoutes = require('./src/Routes/filtragemRoutes');
 app.use('/api/questoes', filtragemRoutes);
 
 // Rota de informações da API
