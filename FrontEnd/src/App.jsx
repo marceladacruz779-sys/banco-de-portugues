@@ -5,7 +5,7 @@ import {
   Routes,
 } from "react-router-dom";
 import "./index.css";
-import "./app.css";
+import "./App.css";
 import Gramatica from "./pages/gramatica/Gramatica";
 import Home from "./pages/home/Home";
 import Literatura from "./pages/literatura/Literatura";

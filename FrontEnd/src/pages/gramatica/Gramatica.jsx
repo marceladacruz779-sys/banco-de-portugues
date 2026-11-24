@@ -10,7 +10,7 @@ export default function Gramatica() {
 
   useEffect(() => {
     async function buscarQuestoes() {
-      let url = "http://localhost:3000/questoes?";
+      let url = "/api/questoes?";
 
       if (banca) url += `instituicao=${encodeURIComponent(banca)}&`;
       if (tema) url += `nomet=${encodeURIComponent(tema)}&`;

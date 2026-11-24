@@ -23,18 +23,9 @@ export default function Login() {
 
 
 
-    // Define qual servidor será utilizado.
-    const defaultServerOrigin = "http://localhost:3000";
-    const serverOrigin =
-      window.location.origin === "null"
-        ? defaultServerOrigin
-        : window.location.origin.includes("localhost:3000")
-          ? window.location.origin
-          : defaultServerOrigin;
-
     try {
         // Faz uma requisição POST para o backend.
-      const response = await fetch(`${serverOrigin}/auth/login`, {
+      const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
 

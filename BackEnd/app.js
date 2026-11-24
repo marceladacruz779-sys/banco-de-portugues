@@ -1,33 +1,21 @@
-// Carrega as variáveis de ambiente (informações) do .env primeiro
 require('dotenv').config();
 
-// Permitem importação e a inicialição do servidor
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const path = require('path');
 
-// Porta
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
-// Rota do login de segurança
+// Rota do login de segurança (agora com /api na frente)
 const authRoutes = require('./src/Routes/authRoutes');
-const { verificarToken } = require('./src/middleware/authMiddleware');
-app.use('/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
-// Rota das questões
+// Rota das questões (agora com /api na frente)
 const filtragemRoutes = require('./src/Routes/filtragemRoutes');
-app.use('/questoes', filtragemRoutes);
-
-// Permitem a navegação do usuário no HTML
-app.use(express.static(path.join(__dirname, '..', 'FrontEnd')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'FrontEnd', 'index.html'));
-});
+app.use('/api/questoes', filtragemRoutes);
 
 // Rota sobre os dados do banco 
 app.get('/api', (req, res) => {
@@ -39,12 +27,16 @@ app.get('/api', (req, res) => {
   });
 });
 
-// Inicia o Servidor
-app.listen(PORT, () => {
-  console.log('='.repeat(50));
-  console.log('🚀 Servidor rodando!');
-  console.log(`📍 URL: http://localhost:${PORT}`);
-  console.log(`💾 Banco: PostgreSQL (${process.env.DB_NAME})`);
-  console.log(`🌍 Ambiente: ${process.env.NODE_ENV || 'development'}`);
-  console.log('='.repeat(50));
-});
+// Só inicia a porta localmente (na Vercel ele ignora isso e usa o module.exports)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log('='.repeat(50));
+    console.log('🚀 Servidor rodando!');
+    console.log(`📍 URL: http://localhost:${PORT}`);
+    console.log(`💾 Banco: PostgreSQL (${process.env.DB_NAME})`);
+    console.log(`🌍 Ambiente: ${process.env.NODE_ENV || 'development'}`);
+    console.log('='.repeat(50));
+  });
+}
+
+module.exports = app;
